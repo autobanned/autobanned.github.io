@@ -1,0 +1,335 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom"><title>an unfinished blogs - FreeBSD</title><link href="https://andyzs.net/" rel="alternate"></link><link href="SITEURL/feeds/freebsd.atom.xml" rel="self"></link><id>https://andyzs.net/</id><updated>2016-12-05T19:30:00+07:00</updated><entry><title>Install dan Konfigurasi Apache, MySQL, PHP7 dan Wordpress di FreeBSD 11 Server</title><link href="https://andyzs.net/Install-apache-mysql-php-freebsd.html" rel="alternate"></link><published>2016-10-05T20:05:00+07:00</published><updated>2016-12-05T19:30:00+07:00</updated><author><name>andy</name></author><id>tag:andyzs.net,2016-10-05:/Install-apache-mysql-php-freebsd.html</id><summary type="html">&lt;p&gt;How to install and configure wordpress on Famp stack, Konfigurasi Famp stack dan wordpress&lt;/p&gt;</summary><content type="html">&lt;p&gt;Pada tutorial ini saya akan membahas cara membangun web server untuk aplikasi php(kita akan menggunakan CMS Wordpress) pada FreeBSD 11 dengan FAMP(FreeBSD, Apache, MariaDB dan Php) stack di FreeBSD server 11.0
+setup yang akan kita buat adalah:
+&lt;ul&gt;
+ &lt;li&gt;FreeBSD 11.0-RELEASE amd64&lt;/li&gt;
+ &lt;li&gt;Apache24-2.4.25.1&lt;/li&gt;
+ &lt;li&gt;PHP70-7.0.14&lt;/li&gt;
+ &lt;li&gt;mod_php70-7.0.14&lt;/li&gt;
+ &lt;li&gt;php70-extensions-1.1
+ &lt;li&gt;MariaDB-100-server&lt;/li&gt;
+ &lt;li&gt;WordPress 4.X&lt;/li&gt;
+&lt;/ul&gt;&lt;/p&gt;
+&lt;p&gt;Pertama-tama sebelum melakukan instalasi kita akan memastikan system dan ports tree 
+kita sudah terupdate semua.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="x"&gt;% sudo freebsd-update fetch &amp;amp;&amp;amp; sudo freebsd-update install&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;lalu update ports tree&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="x"&gt;% sudo portsnap fetch update&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Selanjutnya kita akan memulai untuk menginstall dan mengkonfigurasi setup kita untuk
+membangun web server untuk aplikasi CMS wordpress kita. Selanjutnya seluruh proses yang akan kita lakukan 
+dijalankan dengan menggunakan &lt;code&gt;root&lt;/code&gt; privileges.&lt;/p&gt;
+&lt;h4&gt;Install Apache&lt;/h4&gt;
+&lt;p&gt;Pertama kita akan menginstall dan melakukan konfigurasi pada apache server. Untuk
+menignstall apache24 server kita dapat menggunakan ports tree atau pkg&lt;/p&gt;
+&lt;p&gt;untuk menginstall menggunakan ports tree maka jalankan perintah berikut:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="x"&gt;# cd /usr/ports/www/apache24&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="x"&gt;# make config-recursive install distclean&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Jika kita ingin menginstall binary packet untuk mempercepat proses installasi tanpa perlu melakukan compile
+maka kita dapat melakukan dengan menggunakan &lt;code&gt;pkg&lt;/code&gt; &lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="x"&gt;# pkg install apache24&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Selanjutnya setelah apache telah terinstall, maka kita bisa menjalankannya dan membuat service apache otomatis berjalan saat system boot
+dengan cara berikut:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="x"&gt;# sysrc apache24_enable=YES &amp;amp;&amp;amp; service apache24 start&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Jika tidak mau apache berjalan otomatis saat boot maka kita dapat menjalankannya dengan:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="x"&gt;# service apache24 onestart&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Untuk mengetest apakah apache / httpd server telah berjalan dengan normal kita dapat membuka browser dan memasukan alamat ip kita untuk mengeceknya, 
+maka kita akan mendapatkan tulisan &lt;code&gt;“It works!”&lt;/code&gt; di browser pertanda jika apache sudah terinstall dan berjalan dengan normal.&lt;/p&gt;
+&lt;h4&gt;Install MariaDB&lt;/h4&gt;
+&lt;p&gt;MariaDB adalah forkingan atau pengembangan dari mysql yang dibuat oleh komunitas dari source code mysql.
+Selanjutnya kita akan menginstall MariaDB Server dan Client sebagai database kita. &lt;/p&gt;
+&lt;p&gt;Untuk menginstall MariaDB server melalui port, lakukan dengan cara berikut:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="x"&gt;cd /usr/ports/databases/mariadb100-server &amp;amp;&amp;amp; make config-recursive install distclean&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;selanjutnya kita juga akan install mariadb-client&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="x"&gt;cd /usr/ports/database/mariadb100-client &amp;amp;&amp;amp; make config-recursive install distclean&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Jika ingin mengisntall binary packet melalui &lt;code&gt;pkg&lt;/code&gt;&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="x"&gt;pkg install mariadb100-server mariadb100-client&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Selanjutnya enable mysql-server di /etc/rc.conf agar mysql daemon dapat berjalan otomatis saat system booting dan jalankan service mysql.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="x"&gt;sysrc mysql_enable=YES &amp;amp;&amp;amp; service mysql-server start&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Selanjutnya kita akan menjalankan mysql dan menyetting password &lt;code&gt;root&lt;/code&gt; untuk mysql(mariadb)-server&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="x"&gt;mysql_secure_installation&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Nanti mysql akan menanyakan password root maka ketik enter saja karna kita belum  menyettingnya, kemudian
+setting password mysql kita dan ada beberapa pertanyaan lagi yang akan ditampilkan mysql shell
+seperti &lt;code&gt;Disable root login remotely&lt;/code&gt;, &lt;code&gt;Remove test database&lt;/code&gt;, &lt;code&gt;Remove privileges table&lt;/code&gt; &lt;code&gt;Remove anonymous user&lt;/code&gt; jawab saja semua pertanyaan tersebut dengan &lt;code&gt;Y&lt;/code&gt; .&lt;/p&gt;
+&lt;p&gt;&lt;a target="_blank" href="../images/mysqlsecureins1.png"&gt;
+&lt;img src="../images/mysqlsecureins1.png" alt="Mysql set root" style="width:104px;height:108px;"&gt;
+&lt;/a&gt;
+&lt;a target="_blank" href="../images/mysqlsecureins2.png"&gt;
+&lt;img src="../images/mysqlsecureins2.png" alt="Mysql set root2" style="width:104px;height:108px;"&gt;
+&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Selanjutnya coba masuk ke mysql shell maka kita dapat lakukan dengan command berikut:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="x"&gt;mysql -u root -p&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;jika sukses maka mysql telah sukses terinstall dengan benar.
+untuk keluar dari mysql shell lakukan dengan perintah:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="x"&gt;quit&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;h4&gt;Install PHP&lt;/h4&gt;
+&lt;p&gt;Selanjutnya kita akan menginstall &lt;code&gt;php&lt;/code&gt; berserta extensi dan modphp  yang dibutuhkan&lt;/p&gt;
+&lt;p&gt;Untuk menginstall melalui port maka lakukan dengan perintah berikut:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="x"&gt;cd /usr/ports/etc/lang/php70&lt;/span&gt;
+&lt;span class="x"&gt;make config-recursive install distclean&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;lalu kita akan install php extensi&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="x"&gt;cd /usr/ports/lang/php70-extension/&lt;/span&gt;
+&lt;span class="x"&gt;make config-recursive&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;lalu pilih extensi sesuai yang diperlukan untuk diinstall, dan pada tutorial ini karna kita menggunakan mysql, maka
+jangan lupa memilih extensi &lt;code&gt;MYSQLi&lt;/code&gt; agar php dapat berkomunikasi dengan MaraiDB database yang telah kita install.&lt;/p&gt;
+&lt;p&gt;Selanjutnya install &lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="x"&gt;make install distclean&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Install modphp, yaitu module yang dibutuhkan php untuk apache seperti berikut:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="x"&gt;cd /usr/ports/www/mod_php70&lt;/span&gt;
+&lt;span class="x"&gt;make config-recursive install distclean&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Sedangkan Untuk mengsintall php dan module serta extensi melalui &lt;code&gt;pkg&lt;/code&gt;:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="x"&gt;pkg install php70 php70-opcache php70-mysqli mod_php70&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;h4&gt;(Opsional) PHPmyadmin&lt;/h4&gt;
+&lt;p&gt;Langkah ini adalah opsional, jika hanya ingin menginstall web server untuk menjalankan php aplikasi maka sebenarnya tidak perlu menginstall
+ini, karna kita dapat mengatur mysql/mariadb dari command line saja, tapi untuk mempermudah mengatur proses maka saya mengistall phpmyadmin.
+&lt;code&gt;phpMyAdmin&lt;/code&gt; sendiri adalah tools yang dapat digunakan untuk melakukan administrasi dari Mysql berbasis web, agar kita dapat lebih mudah untuk menangani administrasi dari databasenya.&lt;/p&gt;
+&lt;p&gt;Untuk mengisntallnya dengan &lt;code&gt;ports&lt;/code&gt; :&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="x"&gt;cd /usr/ports/databases/phpmyadmin&lt;/span&gt;
+&lt;span class="x"&gt;make config-recursive install distclean&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Melalui &lt;code&gt;pkg&lt;/code&gt;:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="x"&gt;pkg install phpMyAdmin&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Selanjutnya kita akan melakukan konfigurasi dari paket-paket yang telah terinstall tadi&lt;/p&gt;
+&lt;h4&gt;Konfigurasi&lt;/h4&gt;
+&lt;p&gt;Pertama kita akan membuat file config php. Cara termudah membuat file ini
+adalah dengan mengcopy sample file config yang telah disediakan oleh php. File sampe config yang disediakan oleh php sendiri ada 2, yakni untuk
+production dan untuk development/pengembangan. Pada contoh ini kita akan menggunakan file config untuk development.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="x"&gt;cp /usr/local/etc/php.ini-development /usr/local/etc/php.ini&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Selanjutnya kita akan mengkonfigurasi apache dan menyesuaikan dengan kebutuhan kita sebagai berikut:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="x"&gt;edit /usr/local/etc/apache24/httpd.conf&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;lalu kita akan mencari baris &lt;code&gt;`DirectoryIndex&lt;/code&gt; dan mengganti dari semula&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="nx"&gt;DirectoryIndex&lt;/span&gt; &lt;span class="nx"&gt;index&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;html&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;ubahlah menjadi&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="nx"&gt;DirectoryIndex&lt;/span&gt; &lt;span class="nx"&gt;index&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;html&lt;/span&gt; &lt;span class="nx"&gt;index&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;htm&lt;/span&gt; &lt;span class="nx"&gt;index&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;php&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;lalu tambahkan lah baris berikut ke ahir file config, jika tidak menginstall phpMyAdmin maka tinggalkan baris &lt;code&gt;# phpmyadmin config line&lt;/code&gt;:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="x"&gt;&amp;lt;FilesMatch &amp;quot;\.php$&amp;quot;&amp;gt;&lt;/span&gt;
+&lt;span class="x"&gt;    SetHandler application/x-httpd-php&lt;/span&gt;
+&lt;span class="x"&gt;&amp;lt;/FilesMatch&amp;gt;&lt;/span&gt;
+&lt;span class="x"&gt;&amp;lt;FilesMatch &amp;quot;\.phps$&amp;quot;&amp;gt;&lt;/span&gt;
+&lt;span class="x"&gt;    SetHandler application/x-httpd-php-source&lt;/span&gt;
+&lt;span class="x"&gt;&amp;lt;/FilesMatch&amp;gt;&lt;/span&gt;
+
+&lt;span class="x"&gt;# phpmyadmin config line&lt;/span&gt;
+&lt;span class="x"&gt;Alias /phpmyadmin &amp;quot;/usr/local/www/phpMyAdmin&amp;quot;&lt;/span&gt;
+
+&lt;span class="x"&gt;&amp;lt;Directory &amp;quot;/usr/local/www/phpMyAdmin&amp;quot;&amp;gt;&lt;/span&gt;
+&lt;span class="x"&gt;Options None&lt;/span&gt;
+&lt;span class="x"&gt;AllowOverride None&lt;/span&gt;
+&lt;span class="x"&gt;Require all granted&lt;/span&gt;
+&lt;span class="x"&gt;&amp;lt;/Directory&amp;gt;&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Selanjutnya restart service apache24&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="x"&gt;service apache24 restart&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Selanjutnya untuk database dari wordpress kita, maka kita akan membuat database pada mysql.
+Pertama kita akan mengkonfigurasi phpMyAdmin, bagi yang tidak ingin menginstall php myadmin dan ingin mengatur database pada mysql melalui cli, maka
+dapat melewatkan bagian ini.&lt;/p&gt;
+&lt;h6&gt;# Konfigurasi phpMyAdmin&lt;/h6&gt;
+&lt;p&gt;Pertama kita akan membuat file untuk menyimpan konfigurasi phpMyAdmin. Tidak seperti dulu dimana kita harus membuat file konfig ini manual atau mengedit default file &lt;code&gt;/usr/local/www/phpMyAdmin/config.inc.php&lt;/code&gt;, sekarang phpMyAdmin sudah menyertakan &lt;code&gt;setup script&lt;/code&gt; untuk mempermudah pembuatan file config ini.
+Dimulai dengan membuat direktori tempat file &lt;code&gt;config&lt;/code&gt; ini dan membuatnya direktori itu &lt;code&gt;writeable&lt;/code&gt; oleh phpMyAdmin &lt;code&gt;setup script&lt;/code&gt;.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="x"&gt;mkdir /usr/local/www/phpMyAdmin/config &amp;amp;&amp;amp; chmod o+w /usr/local/www/phpMyAdmin/config&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;lalu ubah &lt;code&gt;permission&lt;/code&gt; agar file &lt;code&gt;/usr/local/www/phpMyAdmin/config.inc.php&lt;/code&gt; terbaca oleh phpMyAdmin &lt;code&gt;setup script&lt;/code&gt;:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="x"&gt;chmod o+r /usr/local/www/phpMyAdmin/config.inc.php&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Sekarang bukalah dari web browser dengan memasukan &lt;em&gt;http://ip-address-atau-domain-atau-localhost/phpmyadmin/setup&lt;/em&gt; maka anda akan melihat halaman setup dari phpMyAdmin. Pilih lah "New Server" dan pilih "Authentication" tab. Pilih lah opsi "http" dari opsi drop list "Authentication type" (Menggunakan Http-Auth untuk masuk ke phpMyAdmin akan mencegah menyimpan password/login info secara langsung ke &lt;code&gt;config.inc.php&lt;/code&gt; ), kemudian hapuslah user 'root' dari "User for config auth". Sekarang selesaikan setup dengan mengapply dan kita akan di kembalikan ke overview page, diaman kita akan melihat new server di daftar. Lalu pilih lah "save" untuk menyimpan konfigurasi kita tersimpan di &lt;code&gt;config.inc.php&lt;/code&gt;. Selanjutnya kita akan memindahkan file config dari phpMyAdmin naik satu direktori agar phpMyAdmin dapat membaca file config tersebut.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="x"&gt;mv /usr/local/www/phpMyAdmin/config/config.inc.php /usr/local/www/phpMyAdmin    &lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Sekarang kita dapat mencoba kembali mengakses phpMyAdmin dengan memasukan di web browser *http://localhost-atau-alamat-ip-atau-domain/phpmyadmin, dan kita akan ditampilkan dengan halaman login page phpMyAdmin sekarang dan dapat mencoba memulai login dan membuat database.&lt;/p&gt;
+&lt;p&gt;&lt;a target="_blank" href="../images/phpmyadmin1.png"&gt;
+&lt;img src="../images/phpmyadmin1.png" alt="phpMyAdmin1" style="width:104px;height:108px;"&gt;
+&lt;/a&gt;
+&lt;a target="_blank" href="../images/phpmyadm2.png"&gt;
+&lt;img src="../images/phpmyadm2.png" alt="phpMyAdmin2" style="width:104px;height:108px;"&gt;
+&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Karna sekarang direktori config di &lt;code&gt;/usr/local/www/phpMyAdmin&lt;/code&gt; sudah kosong kita dapat menghapusnya. Dan juga kita akan merubah file permission dari &lt;code&gt;config.php.ini&lt;/code&gt;.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="x"&gt;rm -r /usr/local/www/phpMyAdmin/config&lt;/span&gt;
+&lt;span class="x"&gt;chmod o-r /usr/local/www/phpMyAdmin/config.inc.php&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Selanjutnya kita membuat database untuk aplikasi CMS wordpress kita:
+Jika mengintsall phpmyadmin maka kita dengan mudah dapat membuat database melalui browser dengan login ke phpMyAdmin dan buatlah database dengan mengarahkan ke tab &lt;code&gt;Databases&lt;/code&gt; lalu buat database baru isi nama database di kolom kosong dan di kolom drop list collation bisa dipilih sesuai dengan collation yang diinginkan, saya disini memilih opsi &lt;code&gt;utf8_unicode_ci&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;Jika ingin membuat database melalui mysql shell maka lakukan langkah berikut:
+&lt;code&gt;mysql -u root -p&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;lalu setelah masuk kedalam mysql shell buatlah database, user dan beri permission user kepada database tersebut.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="x"&gt;&amp;gt; CREATE DATABASE wordpress; &lt;/span&gt;
+&lt;span class="x"&gt;&amp;gt; CREATE USER `wordpress user` IDENTIFIED BY &amp;#39;mypass&amp;#39;; &lt;/span&gt;
+&lt;span class="x"&gt;&amp;gt; GRANT ALL PRIVILEGES ON wordpress.* TO `wordpress user` IDENTIFIED BY &amp;#39;mypass&amp;#39;;&lt;/span&gt;
+&lt;span class="x"&gt;&amp;gt; FLUSH PRIVILEGES;&lt;/span&gt;
+&lt;span class="x"&gt;&amp;gt; quit&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;h6&gt;# Install dan konfig wordpress&lt;/h6&gt;
+&lt;p&gt;Kita akan mendownload wordpress, dan mengestraknya di direktori apache dimana kita akan meletakan data2 web aplikasi kita&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="x"&gt;cd /usr/local/www/apache24/data&lt;/span&gt;
+&lt;span class="x"&gt;wget https://wordpress.org/latest.tar.gz&lt;/span&gt;
+&lt;span class="x"&gt;tar -xf latest.tar.gz&lt;/span&gt;
+&lt;span class="x"&gt;cd wordpress&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;didalam direktory wordpress file yang akan menangani pengaturan konfigurasi ada di &lt;code&gt;wp-config.php&lt;/code&gt;. Cara termudah untuk membuat ini adalah dengan mengcopy &lt;code&gt;wp-config-sample.php&lt;/code&gt;&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="x"&gt;cp wp-config-sample.php wp-config.php&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Setelah di copy maka buka lah file tersebut menggunakan text editor, hal yang paling penting untuk dirubah adalah mysql settig, sesuaikan dengan database untuk wordpress kita&lt;/p&gt;
+&lt;p&gt;Carilah baris berikut:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="x"&gt;/** The name of the database for WordPress */&lt;/span&gt;
+&lt;span class="x"&gt;define(&amp;#39;DB_NAME&amp;#39;, &amp;#39;wordpress&amp;#39;);&lt;/span&gt;
+
+&lt;span class="x"&gt;/** MySQL database username */&lt;/span&gt;
+&lt;span class="x"&gt;define(&amp;#39;DB_USER&amp;#39;, &amp;#39;wordpres user&amp;#39;);&lt;/span&gt;
+
+&lt;span class="x"&gt;/** MySQL database password */&lt;/span&gt;
+&lt;span class="x"&gt;define(&amp;#39;DB_PASSWORD&amp;#39;, &amp;#39;mypass&amp;#39;);&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Opsional untuk keamanan anda juga bisa memasukan settingan unique key dan salt.
+Setelah selseai maka selanjutnya restart service &lt;code&gt;apache24&lt;/code&gt; dan &lt;code&gt;mysql&lt;/code&gt;&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="x"&gt;service apache24 restart &amp;amp;&amp;amp; service mysql-server restart&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Selanjutnya jalankan &lt;code&gt;wordpess&lt;/code&gt; setup dari browser dengan mengarahkan ke &lt;code&gt;http://localhost-atau-ip-address-atau-domain/wordpress/wp-admin/install.php&lt;/code&gt;
+maka kita akan ditampilkan ke halaman installasi wordpress dimana kita akan diminta memasukan info-info yang dibutuhkan seperti judul website, user dan password dari admin untuk wordpress kita.&lt;/p&gt;
+&lt;p&gt;&lt;a target="_blank" href="../images/wpinstall1.png"&gt;&lt;img src="images/wpinstall1.png" alt="wpinstall" style="width:104px;height:108px;"&gt;
+&lt;/a&gt;
+&lt;a target="_blank" href="../images/wpadm1.png"&gt;&lt;img src="images/wpadm1.png" alt="wpadm" style="width:104px;height:108px;"&gt;
+&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Berikut adalah tampilah homepage dari wp di Freebsd dnegan apache, php70 dan mariadb milik saya:&lt;/p&gt;
+&lt;p&gt;&lt;a target="_blank" href="../images/wphome.png"&gt;&lt;img src="images/wphome.png" alt="wphome" style="width:120px;height:120px;"&gt;
+&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Yap demikian lah tutorial yang cukup panjang ini tentang cara menginstall FAMP server dan wordpress (opsional phpmyadmin) di FreeBSD 11.0-RELEASE server.&lt;/p&gt;
+&lt;p&gt;Referensi:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href="https://www.iceflatline.com/2011/11/how-to-install-apache-mysql-php-and-phpmyadmin-on-freebsd/" target="_blank"&gt;Iceflatline&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://wiki.freebsd.org" alt="freebsd wiki" target="_blank"&gt;wiki freebsd&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;</content><category term="www"></category><category term="unix"></category><category term="freebsd"></category><category term="apache"></category><category term="web server"></category></entry><entry><title>Install Hiawatha mariaDB php70 FreeBSD 11.0-RELEASE</title><link href="https://andyzs.net/Install-hiawatha-mysql-php-on-freebsd.html" rel="alternate"></link><published>2015-01-19T20:05:00+07:00</published><updated>2016-12-05T19:30:00+07:00</updated><author><name>andy</name></author><id>tag:andyzs.net,2015-01-19:/Install-hiawatha-mysql-php-on-freebsd.html</id><summary type="html">&lt;p&gt;Install dan Setting Hiawatha web server pada FreeBSD 11.0&lt;/p&gt;</summary><content type="html">&lt;p&gt;Hiawatha adalah webserver ringan yang mengedepankan fitur keamanan atau securitynya, mungkin hiawatha tidak memiliki fitur sebanyak apache ataupun kecepatan seperti nginx tapi hiawtaha dengan ukurannya yang kecil dan fitur keamanan lebih yang ditawarkannya dapat dijadikan sebagai alternatif webserver gratis selain apache dan ngninx.&lt;/p&gt;
+&lt;p&gt;Hiawatha adalah software crossplatform dan dapat dijalankan dihampir semua unix-like OS, dan sistem operasi FreeBSD dan dapat dengan mudah diinstall melalui ports tree ataupun package manager. Pada tutorial kali ini kita akan membahas konfigurasi dan langkah step-by-step cara menginstall hiawatha mariadb php-fpm di freebsd ~~10.1~~ 11.0&lt;/p&gt;
+&lt;p&gt;Note: Seluruh instruksi penginstallan dilakukan dengan akun superuser atau root.&lt;/p&gt;
+&lt;h4&gt;Install Hiawatha&lt;/h4&gt;
+&lt;p&gt;Pindah menuju direktori ports Hiawatha Untuk memulai menginstall&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="cp"&gt;# cd /usr/ports/www/hiawatha &amp;amp;&amp;amp; make install distclean&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;biarkan opsi default atau jika ingin menggunakan hiawatha monitoring dan tomahawk (Hiawatha Command Shell).&lt;/p&gt;
+&lt;p&gt;Untuk menginstall binary dari &lt;code&gt;pkg&lt;/code&gt; maka:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="cp"&gt;# pkg install hiawatha&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Setelah terinstall maka tambahkan hiawatha ke &lt;code&gt;/etc/rc.conf&lt;/code&gt; baru jalankan servicenya:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="cp"&gt;# sysrc hiawatha_enable=YES&lt;/span&gt;
+&lt;span class="cp"&gt;# service hiawatha start&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Ceklah dari browser dengan mengarahkan ke `http://alamat-ip/localhost/nama-domain, jika sukses terinstall maka kita akan melihat halaman default dari hiawatha seperti ini:
+&lt;a target="_blank" href="../images/hiawatha1.png"&gt;
+&lt;img src="../images/hiawatha1.png" alt="Hiawatha default" style="width:104px;height:108px;"&gt;
+&lt;/a&gt;&lt;/p&gt;
+&lt;h4&gt;Install Php70&lt;/h4&gt;
+&lt;p&gt;Selanjutnya setelah sukses menginstall hiawatha kita akan menginstall php70 beserta modul dan ekstensi yang kita inginkan.
+Untuk menginstall paket php melalui ports tree maka pindah ke direktorinya dan install seperti ini:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="cp"&gt;# cd /usr/ports/lang/php70&lt;/span&gt;
+&lt;span class="cp"&gt;# make config-recursive install distclean&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Untuk menginstall modul seperti php-mysql, php-gd dan lainnya pindah menuju direktori php-extension yang dituju dan install seperti berikut:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="cp"&gt;# cd /usr/ports/lang/php70-extension/&lt;/span&gt;
+&lt;span class="cp"&gt;# make config-recursive install distclean&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Jika ingin menginstall paket binary melalui &lt;code&gt;pkg&lt;/code&gt; maka:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="cp"&gt;# pkg install php70 php70-opcache php70-mysqli&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;</content><category term="www"></category><category term="unix"></category><category term="freebsd"></category><category term="hiawatha"></category><category term="web server"></category><category term="php"></category></entry></feed>

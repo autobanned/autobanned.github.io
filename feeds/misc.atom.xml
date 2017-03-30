@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom"><title>an unfinished blogs - Misc</title><link href="https://andyzs.net/" rel="alternate"></link><link href="SITEURL/feeds/misc.atom.xml" rel="self"></link><id>https://andyzs.net/</id><updated>2017-03-22T19:30:00+07:00</updated><entry><title>Perintah atau command dasar pada MySQL dan MariaDB</title><link href="https://andyzs.net/Perintah%20dasar%20pada%20MySQL%20dan%20MariaDB%20CLI.html" rel="alternate"></link><published>2017-03-15T18:20:00+07:00</published><updated>2017-03-22T19:30:00+07:00</updated><author><name>andy</name></author><id>tag:andyzs.net,2017-03-15:/Perintah dasar pada MySQL dan MariaDB CLI.html</id><summary type="html">&lt;p&gt;Perintah dasar untuk mengatur dan mengadministrasi mysql dan mariadb melalu shell atau command line.&lt;/p&gt;</summary><content type="html">&lt;p&gt;Cukup banyak tool ber-GUI yang mempermudah dalam penggunaan MySQL/Mariadb modelnya pun cukup beragam dari yang web based seperti phpMyAdmin sampai desktop aplikasi seperti mysql workbench. &lt;/p&gt;
+&lt;p&gt;Pada tulisan kali ini saya merangkum beberapa perintah-perintah dasar yang wajib diketahui, atau kalau perlu dihapal untuk penggunaan MySQL/Mariadb via CLI. Karena perintah ini sudah bisa mewakili beberapa hal dasar dalam pengaturan peladen (server).&lt;/p&gt;
+&lt;p&gt;Berikut perintah-perintahnya:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Login/Logout MySQL/Mariadb&lt;/strong&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="x"&gt;$ sudo mysql -u root -p&amp;#39;password&amp;#39;&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Untuk keluar dari Maridb/MySQL ketik &lt;code&gt;quit&lt;/code&gt; atau &lt;code&gt;\q&lt;/code&gt;.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Menampilkan Seluruh Isi Database&lt;/strong&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="x"&gt;show databases;&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Menampilkan Seluruh User&lt;/strong&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="x"&gt;SELECT User FROM mysql.user;&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Membuat Database&lt;/strong&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="x"&gt;create database nama_database;&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Membuat User Baru&lt;/strong&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="x"&gt;create user nama_pengguna@localhost identified by &amp;#39;passwordAnda&amp;#39;;&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Mengganti Password User&lt;/strong&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="x"&gt;SET PASSWORD FOR &amp;#39;user&amp;#39;@&amp;#39;localhost&amp;#39; = PASSWORD(&amp;#39;isi_password_baru&amp;#39;);&lt;/span&gt;
+&lt;span class="x"&gt;FLUSH PRIVILEGES;&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Memberi Hak Pada User&lt;/strong&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="x"&gt;grant all privileges on nama_database.* to user@localhost;&lt;/span&gt;
+&lt;span class="x"&gt;flush privileges;&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Menghapus User&lt;/strong&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="x"&gt;DROP USER &amp;#39;user&amp;#39;@&amp;#39;localhost&amp;#39;;&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Menghapus Database&lt;/strong&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="x"&gt;truncate nama_database;&lt;/span&gt;
+&lt;span class="x"&gt;drop database nama_database;&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;&lt;strong&gt;NB&lt;/strong&gt;: Truncate untuk menghapus seluruh table dalam database Anda, jika tidak ada table bisa langsung drop.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Backup MySQL/Mariadb&lt;/strong&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="x"&gt;$ sudo mysqldump -u root -p&amp;#39;password&amp;#39; nama_database &amp;gt; database_backup.sql&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Restore Database&lt;/strong&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="x"&gt;$ sudo mysql -u root -p&amp;#39;password&amp;#39;&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Lalu ketik:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="x"&gt;use nama_database;&lt;/span&gt;
+&lt;span class="x"&gt;source /direktori/database/berformat.sql;&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Atau dapat menggunaka one line command atau perintah sebaris&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="x"&gt;$ sudo mysqldump -u root -p&amp;#39;password&amp;#39; nama_database &amp;lt; database_backup.sql&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Segitu dulu tutorialnya, semoga bermanfaat :)&lt;/p&gt;
+&lt;p&gt;Credit :&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href="https://sitsuali.com"&gt;situsali&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://dev.mysql.com/doc"&gt;mysql doc&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;</content><category term="mysql"></category><category term="mariadb"></category><category term="cli"></category><category term="comman"></category><category term="perintah"></category></entry><entry><title>Menjalankan Telegram Desktop dengan Multi Akun di Komputer</title><link href="https://andyzs.net/menjalankan%20multi%20akun%20dengan%20telegram%20desktop.html" rel="alternate"></link><published>2017-03-01T18:20:00+07:00</published><updated>2017-03-12T19:30:00+07:00</updated><author><name>andy</name></author><id>tag:andyzs.net,2017-03-01:/menjalankan multi akun dengan telegram desktop.html</id><summary type="html">&lt;p&gt;cara berchat dengan multi akun di telegram desktop&lt;/p&gt;</summary><content type="html">&lt;p&gt;Telegram merupakan aplikasi perpesanan instan yang cukup populer digunakan. Keunggulan Telegram terletak pada chat berbasis awan (cloud-based). Dengan demikian, kita dapat merasakan Telegram dapat digunakan banyak perangkat (multi-device) tanpa kehilangan chat. Karena chat tersinkronisasi dari Telegram client ke server.&lt;/p&gt;
+&lt;p&gt;Sebagian dari kita mungkin ada yang butuh menggunakan banyak akun Telegram. Alasanya beragam, entah itu untuk memisahkan akun khusus bisnis atau kantor dengan akun personal. Atau hanya sekadar ingin membuat untuk dimasukan dalam grup / channel, dan lain sebagainya. Intinya, penggunaan multi akun ini sebetulnya memang diperlukan. Saya sendiri termasuk pengguna multi akun di Telegram. Saya buat akun yang satu hanya untuk testing bot saja.&lt;/p&gt;
+&lt;p&gt;Karena penggunaan multi akun ini diperlukan, maka tulisan ini hadir. Sesuai judul batasannya hanya pada pengguna Komputer (desktop client). Untuk mengguna perangkat lain mungkin menyusul pada artikel selanjutnya.😀&lt;/p&gt;
+&lt;p&gt;Triknya sih mudah, cukup jalankan perintah berikut di Terminal (NB: Khusus Pengguna GNU/Linux, BSD varian dan MacOS):&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;cd /path/telegram/Anda
+./Telegram -many -workdir=~/Telegram/Cloning
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Jika ingin lebih mudah lagi, maka kita dapat membuat launchernya, agar kita dapat mengaksesnya secara mudah dari desktop.
+caranya sebagai berikut:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="n"&gt;nano&lt;/span&gt; &lt;span class="o"&gt;~/.&lt;/span&gt;&lt;span class="n"&gt;local&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;share&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;applications&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;telegramcloning&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;desktop&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;lalu masukan kode berikut:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="n"&gt;Desktop&lt;/span&gt; &lt;span class="n"&gt;Entry&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;
+&lt;span class="n"&gt;Encoding&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="n"&gt;UTF&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="mi"&gt;8&lt;/span&gt;
+&lt;span class="n"&gt;Version&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="mf"&gt;1.0&lt;/span&gt;
+&lt;span class="n"&gt;Name&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="n"&gt;Telegram&lt;/span&gt; &lt;span class="n"&gt;Cloning&lt;/span&gt;
+&lt;span class="n"&gt;Comment&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="n"&gt;Official&lt;/span&gt; &lt;span class="n"&gt;desktop&lt;/span&gt; &lt;span class="n"&gt;version&lt;/span&gt; &lt;span class="n"&gt;of&lt;/span&gt; &lt;span class="n"&gt;Telegram&lt;/span&gt; &lt;span class="n"&gt;messaging&lt;/span&gt; &lt;span class="n"&gt;app&lt;/span&gt;
+&lt;span class="n"&gt;Exec&lt;/span&gt;&lt;span class="o"&gt;=/&lt;/span&gt;&lt;span class="n"&gt;path&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;telegram&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;Anda&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;Telegram&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;many&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;workdir&lt;/span&gt; &lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;path&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;telegram&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;kloningAnda&lt;/span&gt;
+&lt;span class="n"&gt;Icon&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="n"&gt;telegram&lt;/span&gt;
+&lt;span class="n"&gt;Terminal&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="n"&gt;false&lt;/span&gt;
+&lt;span class="n"&gt;StartupWMClass&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="n"&gt;Telegram&lt;/span&gt;
+&lt;span class="n"&gt;Type&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="n"&gt;Application&lt;/span&gt;
+&lt;span class="n"&gt;Categories&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="n"&gt;Network&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+&lt;span class="n"&gt;MimeType&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="n"&gt;x&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;scheme&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;handler&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;tg&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+&lt;span class="n"&gt;X&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;Desktop&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;File&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;Install&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;Version&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="mf"&gt;0.22&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Perhatikan perintah &lt;code&gt;Exec&lt;/code&gt; di baris ke-6, pastikan direktorinya disesuaikan dengan direktori di mana Anda memasang Telegram. &lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="n"&gt;Exec&lt;/span&gt;&lt;span class="o"&gt;=/&lt;/span&gt;&lt;span class="n"&gt;path&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;telegram&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;Anda&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;Telegram&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;many&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;workdir&lt;/span&gt; &lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;path&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;telegram&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;kloningAnda&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Jika semua benar maka nanti icon telegram desktop yang baru akan muncul di launcher DE kita.&lt;/p&gt;
+&lt;p&gt;Yap, mudah bukan? Sekarang anda sudah dapat menjalankan multi telegram akun untuk berbagai keperluan atau sekedar have fun beralterego 😜 &lt;/p&gt;
+&lt;p&gt;Note: Saya hanya mempraktekan cara ini di &lt;code&gt;Debian GNU/Linux&lt;/code&gt;, tapi harusnya di system *Nix lainnya pun bisa dilakukan hal yg sama, demikian juga di &lt;code&gt;Windows&lt;/code&gt; caranya juga hampir sama tinggal Anda buat shortcut lalu ganti perintahnya. Sekian ~~~&lt;/p&gt;
+&lt;p&gt;Credit:
+&lt;ul&gt;
+&lt;li&gt; &lt;a href="https://situsali.com/"&gt;SitusAli&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt; &lt;a href="https://rizaumami.github.io/"&gt;kabayankabayan&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;&lt;/p&gt;</content><category term="telegram"></category><category term="misc"></category></entry></feed>
