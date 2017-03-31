@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>an unfinished blogs</title><link href="https://andyzs.net/" rel="alternate"></link><link href="SITEURL/feeds/atom.xml" rel="self"></link><id>https://andyzs.net/</id><updated>2017-03-22T19:30:00+07:00</updated><entry><title>Perintah atau command dasar pada MySQL dan MariaDB</title><link href="https://andyzs.net/Perintah%20dasar%20pada%20MySQL%20dan%20MariaDB%20CLI.html" rel="alternate"></link><published>2017-03-15T18:20:00+07:00</published><updated>2017-03-22T19:30:00+07:00</updated><author><name>andy</name></author><id>tag:andyzs.net,2017-03-15:/Perintah dasar pada MySQL dan MariaDB CLI.html</id><summary type="html">&lt;p&gt;Perintah dasar untuk mengatur dan mengadministrasi mysql dan mariadb melalu shell atau command line.&lt;/p&gt;</summary><content type="html">&lt;p&gt;Cukup banyak tool ber-GUI yang mempermudah dalam penggunaan MySQL/Mariadb modelnya pun cukup beragam dari yang web based seperti phpMyAdmin sampai desktop aplikasi seperti mysql workbench. &lt;/p&gt;
+<feed xmlns="http://www.w3.org/2005/Atom"><title>an unfinished blogs</title><link href="/" rel="alternate"></link><link href="SITEURL/feeds/atom.xml" rel="self"></link><id>/</id><updated>2017-03-22T19:30:00+07:00</updated><entry><title>Perintah atau command dasar pada MySQL dan MariaDB</title><link href="/Perintah%20dasar%20pada%20MySQL%20dan%20MariaDB%20CLI.html" rel="alternate"></link><published>2017-03-15T18:20:00+07:00</published><updated>2017-03-22T19:30:00+07:00</updated><author><name>andy</name></author><id>tag:None,2017-03-15:/Perintah dasar pada MySQL dan MariaDB CLI.html</id><summary type="html">&lt;p&gt;Perintah dasar untuk mengatur dan mengadministrasi mysql dan mariadb melalu shell atau command line.&lt;/p&gt;</summary><content type="html">&lt;p&gt;Cukup banyak tool ber-GUI yang mempermudah dalam penggunaan MySQL/Mariadb modelnya pun cukup beragam dari yang web based seperti phpMyAdmin sampai desktop aplikasi seperti mysql workbench. &lt;/p&gt;
 &lt;p&gt;Pada tulisan kali ini saya merangkum beberapa perintah-perintah dasar yang wajib diketahui, atau kalau perlu dihapal untuk penggunaan MySQL/Mariadb via CLI. Karena perintah ini sudah bisa mewakili beberapa hal dasar dalam pengaturan peladen (server).&lt;/p&gt;
 &lt;p&gt;Berikut perintah-perintahnya:&lt;/p&gt;
 &lt;ul&gt;
@@ -100,7 +100,7 @@
 &lt;ul&gt;
 &lt;li&gt;&lt;a href="https://sitsuali.com"&gt;situsali&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href="https://dev.mysql.com/doc"&gt;mysql doc&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;</content><category term="mysql"></category><category term="mariadb"></category><category term="cli"></category><category term="comman"></category><category term="perintah"></category></entry><entry><title>Menjalankan Telegram Desktop dengan Multi Akun di Komputer</title><link href="https://andyzs.net/menjalankan%20multi%20akun%20dengan%20telegram%20desktop.html" rel="alternate"></link><published>2017-03-01T18:20:00+07:00</published><updated>2017-03-12T19:30:00+07:00</updated><author><name>andy</name></author><id>tag:andyzs.net,2017-03-01:/menjalankan multi akun dengan telegram desktop.html</id><summary type="html">&lt;p&gt;cara berchat dengan multi akun di telegram desktop&lt;/p&gt;</summary><content type="html">&lt;p&gt;Telegram merupakan aplikasi perpesanan instan yang cukup populer digunakan. Keunggulan Telegram terletak pada chat berbasis awan (cloud-based). Dengan demikian, kita dapat merasakan Telegram dapat digunakan banyak perangkat (multi-device) tanpa kehilangan chat. Karena chat tersinkronisasi dari Telegram client ke server.&lt;/p&gt;
+&lt;/ul&gt;</content><category term="mysql"></category><category term="mariadb"></category><category term="cli"></category><category term="comman"></category><category term="perintah"></category></entry><entry><title>Menjalankan Telegram Desktop dengan Multi Akun di Komputer</title><link href="/menjalankan%20multi%20akun%20dengan%20telegram%20desktop.html" rel="alternate"></link><published>2017-03-01T18:20:00+07:00</published><updated>2017-03-12T19:30:00+07:00</updated><author><name>andy</name></author><id>tag:None,2017-03-01:/menjalankan multi akun dengan telegram desktop.html</id><summary type="html">&lt;p&gt;cara berchat dengan multi akun di telegram desktop&lt;/p&gt;</summary><content type="html">&lt;p&gt;Telegram merupakan aplikasi perpesanan instan yang cukup populer digunakan. Keunggulan Telegram terletak pada chat berbasis awan (cloud-based). Dengan demikian, kita dapat merasakan Telegram dapat digunakan banyak perangkat (multi-device) tanpa kehilangan chat. Karena chat tersinkronisasi dari Telegram client ke server.&lt;/p&gt;
 &lt;p&gt;Sebagian dari kita mungkin ada yang butuh menggunakan banyak akun Telegram. Alasanya beragam, entah itu untuk memisahkan akun khusus bisnis atau kantor dengan akun personal. Atau hanya sekadar ingin membuat untuk dimasukan dalam grup / channel, dan lain sebagainya. Intinya, penggunaan multi akun ini sebetulnya memang diperlukan. Saya sendiri termasuk pengguna multi akun di Telegram. Saya buat akun yang satu hanya untuk testing bot saja.&lt;/p&gt;
 &lt;p&gt;Karena penggunaan multi akun ini diperlukan, maka tulisan ini hadir. Sesuai judul batasannya hanya pada pengguna Komputer (desktop client). Untuk mengguna perangkat lain mungkin menyusul pada artikel selanjutnya.😀&lt;/p&gt;
 &lt;p&gt;Triknya sih mudah, cukup jalankan perintah berikut di Terminal (NB: Khusus Pengguna GNU/Linux, BSD varian dan MacOS):&lt;/p&gt;
@@ -144,7 +144,7 @@ caranya sebagai berikut:&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt; &lt;a href="https://situsali.com/"&gt;SitusAli&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt; &lt;a href="https://rizaumami.github.io/"&gt;kabayankabayan&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;&lt;/p&gt;</content><category term="telegram"></category><category term="misc"></category></entry><entry><title>Install dan Konfigurasi Apache, MySQL, PHP7 dan Wordpress di FreeBSD 11 Server</title><link href="https://andyzs.net/Install-apache-mysql-php-freebsd.html" rel="alternate"></link><published>2016-10-05T20:05:00+07:00</published><updated>2016-12-05T19:30:00+07:00</updated><author><name>andy</name></author><id>tag:andyzs.net,2016-10-05:/Install-apache-mysql-php-freebsd.html</id><summary type="html">&lt;p&gt;How to install and configure wordpress on Famp stack, Konfigurasi Famp stack dan wordpress&lt;/p&gt;</summary><content type="html">&lt;p&gt;Pada tutorial ini saya akan membahas cara membangun web server untuk aplikasi php(kita akan menggunakan CMS Wordpress) pada FreeBSD 11 dengan FAMP(FreeBSD, Apache, MariaDB dan Php) stack di FreeBSD server 11.0
+&lt;/ul&gt;&lt;/p&gt;</content><category term="telegram"></category><category term="misc"></category></entry><entry><title>Install dan Konfigurasi Apache, MySQL, PHP7 dan Wordpress di FreeBSD 11 Server</title><link href="/Install-apache-mysql-php-freebsd.html" rel="alternate"></link><published>2016-10-05T20:05:00+07:00</published><updated>2016-12-05T19:30:00+07:00</updated><author><name>andy</name></author><id>tag:None,2016-10-05:/Install-apache-mysql-php-freebsd.html</id><summary type="html">&lt;p&gt;How to install and configure wordpress on Famp stack, Konfigurasi Famp stack dan wordpress&lt;/p&gt;</summary><content type="html">&lt;p&gt;Pada tutorial ini saya akan membahas cara membangun web server untuk aplikasi php(kita akan menggunakan CMS Wordpress) pada FreeBSD 11 dengan FAMP(FreeBSD, Apache, MariaDB dan Php) stack di FreeBSD server 11.0
 setup yang akan kita buat adalah:
 &lt;ul&gt;
  &lt;li&gt;FreeBSD 11.0-RELEASE amd64&lt;/li&gt;
@@ -436,7 +436,7 @@ maka kita akan ditampilkan ke halaman installasi wordpress dimana kita akan dimi
 &lt;ul&gt;
 &lt;li&gt;&lt;a href="https://www.iceflatline.com/2011/11/how-to-install-apache-mysql-php-and-phpmyadmin-on-freebsd/" target="_blank"&gt;Iceflatline&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href="https://wiki.freebsd.org" alt="freebsd wiki" target="_blank"&gt;wiki freebsd&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;</content><category term="www"></category><category term="unix"></category><category term="freebsd"></category><category term="apache"></category><category term="web server"></category></entry><entry><title>Install Hiawatha mariaDB php70 FreeBSD 11.0-RELEASE</title><link href="https://andyzs.net/Install-hiawatha-mysql-php-on-freebsd.html" rel="alternate"></link><published>2015-01-19T20:05:00+07:00</published><updated>2016-12-05T19:30:00+07:00</updated><author><name>andy</name></author><id>tag:andyzs.net,2015-01-19:/Install-hiawatha-mysql-php-on-freebsd.html</id><summary type="html">&lt;p&gt;Install dan Setting Hiawatha web server pada FreeBSD 11.0&lt;/p&gt;</summary><content type="html">&lt;p&gt;Hiawatha adalah webserver ringan yang mengedepankan fitur keamanan atau securitynya, mungkin hiawatha tidak memiliki fitur sebanyak apache ataupun kecepatan seperti nginx tapi hiawtaha dengan ukurannya yang kecil dan fitur keamanan lebih yang ditawarkannya dapat dijadikan sebagai alternatif webserver gratis selain apache dan ngninx.&lt;/p&gt;
+&lt;/ul&gt;</content><category term="www"></category><category term="unix"></category><category term="freebsd"></category><category term="apache"></category><category term="web server"></category></entry><entry><title>Install Hiawatha, php70-fpm FreeBSD 11.0-RELEASE</title><link href="/Install-hiawatha-mysql-php-on-freebsd.html" rel="alternate"></link><published>2014-12-19T20:05:00+07:00</published><updated>2017-02-05T19:30:00+07:00</updated><author><name>andy</name></author><id>tag:None,2014-12-19:/Install-hiawatha-mysql-php-on-freebsd.html</id><summary type="html">&lt;p&gt;Install dan Setting Hiawatha web server pada FreeBSD 11.0&lt;/p&gt;</summary><content type="html">&lt;p&gt;Hiawatha adalah webserver ringan yang mengedepankan fitur keamanan atau securitynya, mungkin hiawatha tidak memiliki fitur sebanyak apache ataupun kecepatan seperti nginx tapi hiawtaha dengan ukurannya yang kecil dan fitur keamanan lebih yang ditawarkannya dapat dijadikan sebagai alternatif webserver gratis selain apache dan ngninx.&lt;/p&gt;
 &lt;p&gt;Hiawatha adalah software crossplatform dan dapat dijalankan dihampir semua unix-like OS, dan sistem operasi FreeBSD dan dapat dengan mudah diinstall melalui ports tree ataupun package manager. Pada tutorial kali ini kita akan membahas konfigurasi dan langkah step-by-step cara menginstall hiawatha mariadb php-fpm di freebsd ~~10.1~~ 11.0&lt;/p&gt;
 &lt;p&gt;Note: Seluruh instruksi penginstallan dilakukan dengan akun superuser atau root.&lt;/p&gt;
 &lt;h4&gt;Install Hiawatha&lt;/h4&gt;
@@ -459,7 +459,7 @@ maka kita akan ditampilkan ke halaman installasi wordpress dimana kita akan dimi
 
 &lt;p&gt;Ceklah dari browser dengan mengarahkan ke `http://alamat-ip/localhost/nama-domain, jika sukses terinstall maka kita akan melihat halaman default dari hiawatha seperti ini:
 &lt;a target="_blank" href="../images/hiawatha1.png"&gt;
-&lt;img src="../images/hiawatha1.png" alt="Hiawatha default" style="width:104px;height:108px;"&gt;
+&lt;img src="../images/hiawatha1.png" alt="Hiawatha default" style="width:180px;height:190px;"&gt;
 &lt;/a&gt;&lt;/p&gt;
 &lt;h4&gt;Install Php70&lt;/h4&gt;
 &lt;p&gt;Selanjutnya setelah sukses menginstall hiawatha kita akan menginstall php70 beserta modul dan ekstensi yang kita inginkan.
@@ -477,4 +477,252 @@ Untuk menginstall paket php melalui ports tree maka pindah ke direktorinya dan i
 
 &lt;p&gt;Jika ingin menginstall paket binary melalui &lt;code&gt;pkg&lt;/code&gt; maka:&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="cp"&gt;# pkg install php70 php70-opcache php70-mysqli&lt;/span&gt;
-&lt;/pre&gt;&lt;/div&gt;</content><category term="www"></category><category term="unix"></category><category term="freebsd"></category><category term="hiawatha"></category><category term="web server"></category><category term="php"></category></entry></feed>
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Selanjutnya kita akan membuat file &lt;code&gt;php.ini&lt;/code&gt;, yang akan menjadi file konfigurasi untuk php. Cara termudah untuk melakukannya adalah dengan mengcopy dari file sample yang disertakan saat instalasi. 
+Php sendiri menyertakan 2 buah file config sample yang ditujukan sebagai referensi yaitu production dan development. 
+Dicontoh ini kita akan menggunakan php.ini-development.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="cp"&gt;# cp /usr/local/etc/php.ini-development /usr/local/etc/php.ini&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Selanjutnya edit file &lt;code&gt;/usr/local/etc/php.ini&lt;/code&gt; lalu temukan baris &lt;code&gt;cgi.fix_pathinfo&lt;/code&gt;, lalu temukan baris berikut:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;&lt;span class="n"&gt;cgi&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;fix_pathinfo&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;dan ubah menjadi seperti ini:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="n"&gt;cgi&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;fix_pathinfo&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="mi"&gt;0&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Lalu kita juga akan merubah beberapa settingan php-fpm seperti listen string kita akan merubahnya dari tcp ke unix socket dan juga listen permissionnya.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="cp"&gt;# edit /usr/local/etc/php-fpm.d/www.conf&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;lalu cari baris &lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;**listen = 127.0.0.1:9000** 
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;dan ubah menjadi:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="n"&gt;listen&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;var&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;run&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;php&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;fpm&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;sock&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;kemudian uncoment line berikutnya dibagian permission dan ubah agar menjadi seperti ini:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="o"&gt;**&lt;/span&gt;&lt;span class="n"&gt;listen&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;owner&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;www&lt;/span&gt;&lt;span class="o"&gt;**&lt;/span&gt;
+&lt;span class="o"&gt;**&lt;/span&gt;&lt;span class="n"&gt;listen&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;group&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;www&lt;/span&gt;&lt;span class="o"&gt;**&lt;/span&gt;
+&lt;span class="o"&gt;**&lt;/span&gt;&lt;span class="n"&gt;listen&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;mode&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="mo"&gt;0660&lt;/span&gt;&lt;span class="o"&gt;**&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Selesai lalu simpan dan keluar.
+Jika ingin melakukan perubahan lebih jauh maka silahkan melakukan explorasi dengan membaca refrensi di http://php.net/ .&lt;/p&gt;
+&lt;p&gt;Setelah itu tambahkan php-fppm ke file rc.conf dan jalankan php fpm&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="cp"&gt;# sysrc php_fpm_enable=YES &amp;amp;&amp;amp; service php-fpm start&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Selanjutnya setelah merubah konfigurasi php maka kita akan mengubah beberapa settingan pada file konfigurasi &lt;code&gt;hiawatha&lt;/code&gt; dan menyesuaikannya.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="cp"&gt;# edit /usr/local/etc/hiawatha/hiawatha.conf&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;lalu cari baris &lt;strong&gt;CGIhandler&lt;/strong&gt; dan ubahlah baris berikut:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="n"&gt;CGIhandler&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;usr&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;local&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;bin&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;php&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="nl"&gt;cgi&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="n"&gt;php&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;menjadi seperti ini:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="n"&gt;CGIhandler&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;usr&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;local&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;bin&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;php&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="nl"&gt;cgi&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="n"&gt;php&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="n"&gt;php7&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Selanjutnya dibagian &lt;strong&gt;FastCGI&lt;/strong&gt; ubah dari&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="n"&gt;FastCGIserver&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+&lt;span class="n"&gt;FastCGIid&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;PHP5&lt;/span&gt;
+&lt;span class="n"&gt;ConnectTo&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="mf"&gt;127.0.0.1&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt;&lt;span class="mi"&gt;2005&lt;/span&gt;
+&lt;span class="n"&gt;Extension&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;php&lt;/span&gt;
+&lt;span class="p"&gt;}&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;dan ubahlah menjadi:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="n"&gt;FastCGIserver&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+&lt;span class="n"&gt;FastCGIid&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;PHP5&lt;/span&gt;
+&lt;span class="n"&gt;ConnectTo&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="mf"&gt;127.0.0.1&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt;&lt;span class="mi"&gt;2005&lt;/span&gt;
+&lt;span class="n"&gt;Extension&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;php&lt;/span&gt;
+&lt;span class="p"&gt;}&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Untuk settingan lebih lanjut bisa direfernsikan ke &lt;a href="https://www.hiawatha-webserver.org/manpages"&gt;manual pages hiawatha&lt;/a&gt; :&lt;/p&gt;
+&lt;p&gt;Ini adalah contoh dari file hiawatha.conf saya:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="err"&gt;#&lt;/span&gt; &lt;span class="nt"&gt;Hiawatha&lt;/span&gt; &lt;span class="nt"&gt;main&lt;/span&gt; &lt;span class="nt"&gt;configuration&lt;/span&gt; &lt;span class="nt"&gt;file&lt;/span&gt;
+&lt;span class="err"&gt;#&lt;/span&gt;
+
+&lt;span class="err"&gt;#&lt;/span&gt; &lt;span class="nt"&gt;VARIABLES&lt;/span&gt;
+&lt;span class="err"&gt;#&lt;/span&gt; &lt;span class="nt"&gt;With&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;set&amp;#39;&lt;/span&gt;&lt;span class="o"&gt;,&lt;/span&gt; &lt;span class="nt"&gt;you&lt;/span&gt; &lt;span class="nt"&gt;can&lt;/span&gt; &lt;span class="nt"&gt;declare&lt;/span&gt; &lt;span class="nt"&gt;a&lt;/span&gt; &lt;span class="nt"&gt;variable&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt; &lt;span class="nt"&gt;Make&lt;/span&gt; &lt;span class="nt"&gt;sure&lt;/span&gt; &lt;span class="nt"&gt;the&lt;/span&gt; &lt;span class="nt"&gt;name&lt;/span&gt; &lt;span class="nt"&gt;of&lt;/span&gt; &lt;span class="nt"&gt;the&lt;/span&gt;
+&lt;span class="err"&gt;#&lt;/span&gt; &lt;span class="nt"&gt;variable&lt;/span&gt; &lt;span class="nt"&gt;doesn&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;t conflict with any of the configuration options.&lt;/span&gt;
+&lt;span class="s1"&gt;# The variables are case-sensitive and cannot be redeclared.&lt;/span&gt;
+&lt;span class="s1"&gt;#&lt;/span&gt;
+&lt;span class="s1"&gt;#set LOCALHOST = 127.0.0.0/8&lt;/span&gt;
+
+
+&lt;span class="s1"&gt;# GENERAL SETTINGS&lt;/span&gt;
+&lt;span class="s1"&gt;#&lt;/span&gt;
+&lt;span class="s1"&gt;ServerId = www&lt;/span&gt;
+&lt;span class="s1"&gt;ConnectionsTotal = 500  # Jumlah koneksi total disaat yang bersamaan, hampir sama dengan nginx      ##          worker_connection default 150&lt;/span&gt;
+&lt;span class="s1"&gt;ConnectionsPerIP = 25   # Jumlah koneksi perIP sama, kurang lebih seperti ngx_http_limit_conn_module&lt;/span&gt;
+&lt;span class="s1"&gt;##          default 25&lt;/span&gt;
+&lt;span class="s1"&gt;SystemLogfile = /var/log/hiawatha/system.log    # log file hiawatha&lt;/span&gt;
+&lt;span class="s1"&gt;GarbageLogfile = /var/log/hiawatha/garbage.log   #Logfile seluruh http request yang salah&lt;/span&gt;
+&lt;span class="s1"&gt;ExploitLogFie   #Logfile seluruh exploit attempt yang diterima server seperti SQLinjection, CSRF, ##          XSS, dll&lt;/span&gt;
+
+&lt;span class="s1"&gt;# BINDING SETTINGS&lt;/span&gt;
+&lt;span class="s1"&gt;# A binding is where a client can connect to.&lt;/span&gt;
+&lt;span class="s1"&gt;#&lt;/span&gt;
+&lt;span class="s1"&gt;Binding {&lt;/span&gt;
+&lt;span class="s1"&gt;    Port = 80&lt;/span&gt;
+&lt;span class="s1"&gt;    Interface = 172.16.10.51&lt;/span&gt;
+&lt;span class="s1"&gt;    MaxKeepAlive = 50&lt;/span&gt;
+&lt;span class="s1"&gt;    TimeForRequest = 10,45&lt;/span&gt;
+&lt;span class="s1"&gt;    MaxRequestsize = 1024&lt;/span&gt;
+&lt;span class="s1"&gt;    MaxUploadSize = 10&lt;/span&gt;
+&lt;span class="s1"&gt;}&lt;/span&gt;
+&lt;span class="s1"&gt;#&lt;/span&gt;
+&lt;span class="s1"&gt;#Binding {&lt;/span&gt;
+&lt;span class="s1"&gt;#   Port = 443&lt;/span&gt;
+&lt;span class="s1"&gt;#   TLScertFile = ssl/hiawatha.pem&lt;/span&gt;
+&lt;span class="s1"&gt;#   Interface = 127.0.0.1&lt;/span&gt;
+&lt;span class="s1"&gt;#   MaxRequestSize = 2048&lt;/span&gt;
+&lt;span class="s1"&gt;#   TimeForRequest = 30&lt;/span&gt;
+&lt;span class="s1"&gt;#}&lt;/span&gt;
+
+
+&lt;span class="s1"&gt;# BANNING SETTINGS&lt;/span&gt;
+&lt;span class="s1"&gt;# Deny service to clients who misbehave.&lt;/span&gt;
+&lt;span class="s1"&gt;#&lt;/span&gt;
+&lt;span class="s1"&gt;#BanOnGarbage = 300&lt;/span&gt;
+&lt;span class="s1"&gt;#BanOnMaxPerIP = 60&lt;/span&gt;
+&lt;span class="s1"&gt;#BanOnMaxReqSize = 300&lt;/span&gt;
+&lt;span class="s1"&gt;#KickOnBan = yes&lt;/span&gt;
+&lt;span class="s1"&gt;#RebanDuringBan = yes&lt;/span&gt;
+
+
+&lt;span class="s1"&gt;# COMMON GATEWAY INTERFACE (CGI) SETTINGS&lt;/span&gt;
+&lt;span class="s1"&gt;# These settings can be used to run CGI applications.&lt;/span&gt;
+&lt;span class="s1"&gt;#&lt;/span&gt;
+&lt;span class="s1"&gt;#CGIhandler = /usr/local/bin/perl:pl&lt;/span&gt;
+&lt;span class="s1"&gt;CGIhandler = /usr/local/bin/php-cgi:php&lt;/span&gt;
+&lt;span class="s1"&gt;#CGIhandler = /usr/local/bin/python:py&lt;/span&gt;
+&lt;span class="s1"&gt;#CGIhandler = /usr/local/bin/ruby:rb&lt;/span&gt;
+&lt;span class="s1"&gt;#CGIhandler = /usr/local/bin/ssi-cgi:shtml&lt;/span&gt;
+&lt;span class="s1"&gt;#CGIextension = cgi&lt;/span&gt;
+&lt;span class="s1"&gt;#&lt;/span&gt;
+&lt;span class="s1"&gt;FastCGIserver {&lt;/span&gt;
+&lt;span class="s1"&gt;    FastCGIid = PHP7&lt;/span&gt;
+&lt;span class="s1"&gt;    ConnectTo = /var/run/php-fpm.sock&lt;/span&gt;
+&lt;span class="s1"&gt;    Extension = php&lt;/span&gt;
+&lt;span class="s1"&gt;}&lt;/span&gt;
+
+
+&lt;span class="s1"&gt;# URL TOOLKIT # **URL Rewrite Rules**&lt;/span&gt;
+&lt;span class="s1"&gt;# This URL toolkit rule was made for the Banshee PHP framework,&lt;/span&gt;
+&lt;span class="s1"&gt;# which can be downloaded from http://www.banshee-php.org/&lt;/span&gt;
+&lt;span class="s1"&gt;#&lt;/span&gt;
+&lt;span class="s1"&gt;#UrlToolkit {&lt;/span&gt;
+&lt;span class="s1"&gt;#   ToolkitID = banshee&lt;/span&gt;
+&lt;span class="s1"&gt;#   RequestURI isfile Return&lt;/span&gt;
+&lt;span class="s1"&gt;#   Match ^/(css|files|fonts|images|js)($|/) Return&lt;/span&gt;
+&lt;span class="s1"&gt;#   Match ^/(favicon.ico|robots.txt)$ Return&lt;/span&gt;
+&lt;span class="s1"&gt;#   Match [^?]*(\?.*)? Rewrite /index.php$1&lt;/span&gt;
+&lt;span class="s1"&gt;#}&lt;/span&gt;
+
+
+&lt;span class="s1"&gt;# DIRECTORY SETTINGS&lt;/span&gt;
+&lt;span class="s1"&gt;# You can specify some settings per directory.&lt;/span&gt;
+&lt;span class="s1"&gt;#&lt;/span&gt;
+&lt;span class="s1"&gt;#Directory {&lt;/span&gt;
+&lt;span class="s1"&gt;#   DirectoryID = static&lt;/span&gt;
+&lt;span class="s1"&gt;#   Path = /css, /fonts, /images, /js&lt;/span&gt;
+&lt;span class="s1"&gt;#   ExpirePeriod = 2 weeks&lt;/span&gt;
+&lt;span class="s1"&gt;#}&lt;/span&gt;
+&lt;span class="s1"&gt;#&lt;/span&gt;
+&lt;span class="s1"&gt;#Directory {&lt;/span&gt;
+&lt;span class="s1"&gt;#   DirectoryID = files&lt;/span&gt;
+&lt;span class="s1"&gt;#   Path = /files&lt;/span&gt;
+&lt;span class="s1"&gt;#   ShowIndex = yes&lt;/span&gt;
+&lt;span class="s1"&gt;#   StartFile = index.html&lt;/span&gt;
+&lt;span class="s1"&gt;#   ExecuteCGI = no&lt;/span&gt;
+&lt;span class="s1"&gt;#}&lt;/span&gt;
+
+
+&lt;span class="s1"&gt;# DEFAULT WEBSITE&lt;/span&gt;
+&lt;span class="s1"&gt;# It is wise to use your IP address as the hostname of the default website&lt;/span&gt;
+&lt;span class="s1"&gt;# and give it a blank webpage. By doing so, automated webscanners won&amp;#39;&lt;/span&gt;&lt;span class="nt"&gt;t&lt;/span&gt; &lt;span class="nt"&gt;find&lt;/span&gt;
+&lt;span class="err"&gt;#&lt;/span&gt; &lt;span class="nt"&gt;your&lt;/span&gt; &lt;span class="nt"&gt;possible&lt;/span&gt; &lt;span class="nt"&gt;vulnerable&lt;/span&gt; &lt;span class="nt"&gt;website&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;
+&lt;span class="err"&gt;#&lt;/span&gt;
+&lt;span class="nt"&gt;Hostname&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nt"&gt;172&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nc"&gt;16&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nc"&gt;10&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nc"&gt;51&lt;/span&gt;
+&lt;span class="nt"&gt;WebsiteRoot&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="nt"&gt;usr&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="nt"&gt;local&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="nt"&gt;www&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="nt"&gt;hiawatha&lt;/span&gt;
+&lt;span class="nt"&gt;StartFile&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nt"&gt;index&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nc"&gt;php&lt;/span&gt; &lt;span class="nt"&gt;index&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nc"&gt;htm&lt;/span&gt; &lt;span class="nt"&gt;index&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nc"&gt;html&lt;/span&gt;
+&lt;span class="nt"&gt;AccessLogfile&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="nt"&gt;var&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="nt"&gt;log&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="nt"&gt;hiawatha&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="nt"&gt;access&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nc"&gt;log&lt;/span&gt;
+&lt;span class="nt"&gt;ErrorLogfile&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="nt"&gt;var&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="nt"&gt;log&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="nt"&gt;hiawatha&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="nt"&gt;error&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nc"&gt;log&lt;/span&gt;
+&lt;span class="nt"&gt;ExecuteCGI&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nt"&gt;yes&lt;/span&gt;
+
+&lt;span class="err"&gt;#&lt;/span&gt; &lt;span class="nt"&gt;VIRTUAL&lt;/span&gt; &lt;span class="nt"&gt;HOSTS&lt;/span&gt;
+&lt;span class="err"&gt;#&lt;/span&gt; &lt;span class="nt"&gt;Use&lt;/span&gt; &lt;span class="nt"&gt;a&lt;/span&gt; &lt;span class="nt"&gt;VirtualHost&lt;/span&gt; &lt;span class="nt"&gt;section&lt;/span&gt; &lt;span class="nt"&gt;for&lt;/span&gt; &lt;span class="nt"&gt;each&lt;/span&gt; &lt;span class="nt"&gt;website&lt;/span&gt; &lt;span class="nt"&gt;you&lt;/span&gt; &lt;span class="nt"&gt;want&lt;/span&gt; &lt;span class="nt"&gt;to&lt;/span&gt; &lt;span class="nt"&gt;host&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;
+&lt;span class="err"&gt;#&lt;/span&gt;
+&lt;span class="p"&gt;#&lt;/span&gt;&lt;span class="nn"&gt;VirtualHost&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+&lt;span class="err"&gt;#&lt;/span&gt;   &lt;span class="err"&gt;Hostname&lt;/span&gt; &lt;span class="err"&gt;=&lt;/span&gt; &lt;span class="err"&gt;www.my-domain.com&lt;/span&gt;
+&lt;span class="err"&gt;#&lt;/span&gt;   &lt;span class="err"&gt;WebsiteRoot&lt;/span&gt; &lt;span class="err"&gt;=&lt;/span&gt; &lt;span class="err"&gt;/var/www/my-domain/public&lt;/span&gt;
+&lt;span class="err"&gt;#&lt;/span&gt;   &lt;span class="err"&gt;AccessLogfile&lt;/span&gt; &lt;span class="err"&gt;=&lt;/span&gt; &lt;span class="err"&gt;/var/www/my-domain/log/access.log&lt;/span&gt;
+&lt;span class="err"&gt;#&lt;/span&gt;   &lt;span class="err"&gt;ErrorLogfile&lt;/span&gt; &lt;span class="err"&gt;=&lt;/span&gt; &lt;span class="err"&gt;/var/www/my-domain/log/error.log&lt;/span&gt;
+&lt;span class="err"&gt;#&lt;/span&gt;   &lt;span class="err"&gt;TimeForCGI&lt;/span&gt; &lt;span class="err"&gt;=&lt;/span&gt; &lt;span class="err"&gt;5&lt;/span&gt;
+&lt;span class="err"&gt;#&lt;/span&gt;   &lt;span class="err"&gt;UseFastCGI&lt;/span&gt; &lt;span class="err"&gt;=&lt;/span&gt; &lt;span class="err"&gt;PHP5&lt;/span&gt;
+&lt;span class="err"&gt;#&lt;/span&gt;   &lt;span class="err"&gt;UseToolkit&lt;/span&gt; &lt;span class="err"&gt;=&lt;/span&gt; &lt;span class="err"&gt;banshee&lt;/span&gt;
+&lt;span class="err"&gt;#&lt;/span&gt;   &lt;span class="err"&gt;UseDirectory&lt;/span&gt; &lt;span class="err"&gt;=&lt;/span&gt; &lt;span class="err"&gt;static,&lt;/span&gt; &lt;span class="err"&gt;files&lt;/span&gt;
+&lt;span class="err"&gt;#&lt;/span&gt;&lt;span class="p"&gt;}&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Selanjutnya test untuk melihat apakah php berhasil terpasang dengan benar maka kita akan membuat file &lt;strong&gt;php.info&lt;/strong&gt; di &lt;code&gt;/usr/local/www/hiawatha/phpinfo.php&lt;/code&gt;&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="o"&gt;&amp;lt;?&lt;/span&gt;&lt;span class="n"&gt;php&lt;/span&gt;
+
+&lt;span class="n"&gt;phpinfo&lt;/span&gt;&lt;span class="p"&gt;();&lt;/span&gt;
+
+&lt;span class="o"&gt;?&amp;gt;&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Kemudian ubah  restart servcie &lt;code&gt;hiawatha&lt;/code&gt; dan &lt;code&gt;php-fpm&lt;/code&gt;&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="n"&gt;service&lt;/span&gt; &lt;span class="n"&gt;hiawatha&lt;/span&gt; &lt;span class="n"&gt;restart&lt;/span&gt; &lt;span class="o"&gt;&amp;amp;&amp;amp;&lt;/span&gt; &lt;span class="n"&gt;service&lt;/span&gt; &lt;span class="n"&gt;php&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;fpm&lt;/span&gt; &lt;span class="n"&gt;restart&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Sekarang bukalah browser dan ketikan `http://alamat-ip-ataudomain/phpinfo.php maka kita akan mendapatkan halaman informasi tentang php yang kita install beserta modul yang disupport
+&lt;a target="_blank" href="../images/hiawatha2.png"&gt;
+&lt;img src="../images/hiawatha1.png" alt="Hiawatha default" style="width:180px;height:190px;"&gt;
+&lt;/a&gt;&lt;/p&gt;
+&lt;h4&gt;Instalasi MariaDB&lt;/h4&gt;
+&lt;p&gt;Selanjutnya install mariadb untuk database&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="cp"&gt;# cd /usr/ports/databases/mariadb100-server &amp;amp;&amp;amp; make config-recursive install distclean&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;atau jika menggunakan &lt;code&gt;pkg&lt;/code&gt;&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="cp"&gt;# pkg install mariadb100-server&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Selanjutnya tambahkan enable service untuk &lt;code&gt;mysql-server&lt;/code&gt; di &lt;code&gt;/etc/rc.conf&lt;/code&gt; dan jalankan servicenya:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="cp"&gt;# sysrc mysql_enable=YES&lt;/span&gt;
+&lt;span class="cp"&gt;# service mysql-server start&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Ok sekian dengan begitu kita telah berhasi menginstall Hiawatha, PHP70 dan MariaDB di FreeBSD 11.0-Release. Sekarang Web Server, database dan php-fpm sudah terpasang dan berjalan servicenya, dan siap untuk digunakan sebagai enviroment untuk applikasi web kita. &lt;/p&gt;
+&lt;p&gt;*untuk referensi &lt;strong&gt;url_toolkit&lt;/strong&gt; beberapa php cms dan framework bisa melihat sample ini disini: https://www.hiawatha-webserver.org/howto/url_rewrite_rules&lt;/p&gt;</content><category term="www"></category><category term="unix"></category><category term="freebsd"></category><category term="hiawatha"></category><category term="web server"></category><category term="php"></category></entry></feed>
