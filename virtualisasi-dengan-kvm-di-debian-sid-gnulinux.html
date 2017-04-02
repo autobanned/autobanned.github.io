@@ -1,44 +1,43 @@
-<meta property="og:title" content="an unfinished blogs" />
-<meta property="og:type" content="website" />
-<meta property="og:url" content="https://andyzs.net" />
-<meta name="twitter:url" content="https://andyzs.net" />
-<meta itemprop="name" content="an unfinished blogs">
-<meta itemprop="url" content="https://andyzs.net">
-<meta property="og:image" content="https://andyzs.net/static/img/ava.jpeg" />
-<meta property="og:image:type" content="image/jpeg" />
-<meta name="twitter:image" content="https://andyzs.net/static/img/ava.jpeg" />
-<meta itemprop="image" content="https://andyzs.net/static/img/ava.jpeg"/>
-
 <!DOCTYPE html>
-<!--[if lt IE 7]>      <html lang="en" class="no-js lt-ie9 lt-ie8 lt-ie7" prefix="og: http://ogp.me/ns#" itemscope itemtype="http://schema.org/Blog"> <![endif]-->
-<!--[if IE 7]>         <html lang="en" class="no-js lt-ie9 lt-ie8" prefix="og: http://ogp.me/ns#" itemscope itemtype="http://schema.org/Blog"> <![endif]-->
-<!--[if IE 8]>         <html lang="en" class="no-js lt-ie9" prefix="og: http://ogp.me/ns#" itemscope itemtype="http://schema.org/Blog"> <![endif]-->
-<!--[if gt IE 8]><!--> <html lang="en" class="no-js" prefix="og: http://ogp.me/ns#" itemscope itemtype="http://schema.org/Blog"> <!--<![endif]-->
+<!--[if lt IE 7]>      <html lang="en" class="no-js lt-ie9 lt-ie8 lt-ie7" prefix="og: http://ogp.me/ns#" itemscope itemtype="http://schema.org/BlogPosting"> <![endif]-->
+<!--[if IE 7]>         <html lang="en" class="no-js lt-ie9 lt-ie8" prefix="og: http://ogp.me/ns#" itemscope itemtype="http://schema.org/BlogPosting"> <![endif]-->
+<!--[if IE 8]>         <html lang="en" class="no-js lt-ie9" prefix="og: http://ogp.me/ns#" itemscope itemtype="http://schema.org/BlogPosting"> <![endif]-->
+<!--[if gt IE 8]><!--> <html lang="en" class="no-js" prefix="og: http://ogp.me/ns#" itemscope itemtype="http://schema.org/BlogPosting"> <!--<![endif]-->
 <head>
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
-<title>Categories</title>
+<title>Virtualisasi dengan KVM di Debian SID GNU/Linux</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="description" content="">
+<meta name="description" content="Status : hidden Slug: install-kvm-debian-linux Authors: andy Summary: Instalasi qemu/kvm di debian linux, virtualisasi dengan linux kvm KVM adalah singkatan dari Kernel-based Virtual Machine, merupakan salah satu arsitektur virtualisasi bersumber terbuka (Open source) yang ditanamkan kedalam linux kernel.">
 <link rel="shortcut icon" href="https://andyzs.net/favicon.ico" type="">
 <meta name="author" content="andyzeff" >
 <meta name="copyright" content="andy">
 <meta name="twitter:card" content="summary" />
 <meta name="twitter:site" content="@andyzzzs" />
 <meta property="og:site_name" content="an unfinished blogs" />
-<meta property="og:title" content="an unfinished blogs" />
-<meta property="og:type" content="website" />
-<meta property="og:url" content="https://andyzs.net" />
-<meta name="twitter:url" content="https://andyzs.net" />
-<meta itemprop="name" content="an unfinished blogs" />
-<meta itemprop="url" content="https://andyzs.net"/>
-<meta property="og:description" content="A blog about learn programming, *nix, and etc." />
-<meta name="twitter:description" content="A blog about learn programming, *nix, and etc." />
-<meta itemprop="description" content="A blog about learn programming, *nix, and etc." />
+
+<meta property="og:title" content="Virtualisasi dengan kvm di debian sid gnu/linux" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://andyzs.net/virtualisasi-dengan-kvm-di-debian-sid-gnulinux.html" />
+<meta name="twitter:title" content="Virtualisasi dengan kvm di debian sid gnu/linux" />
+<meta name="twitter:url" content="https://andyzs.net/virtualisasi-dengan-kvm-di-debian-sid-gnulinux.html" />
+<meta itemprop="url" content="https://andyzs.net/virtualisasi-dengan-kvm-di-debian-sid-gnulinux.html" />
+<meta property="og:description" content="Status : hidden Slug: install-kvm-debian-linux Authors: andy Summary: Instalasi qemu/kvm di debian linux, virtualisasi dengan linux kvm KVM adalah singkatan dari Kernel-based Virtual Machine, merupakan salah satu arsitektur virtualisasi bersumber terbuka (Open source) yang ditanamkan kedalam linux kernel." />
+<meta name="twitter:description" content="Status : hidden Slug: install-kvm-debian-linux Authors: andy Summary: Instalasi qemu/kvm di debian linux, virtualisasi dengan linux kvm KVM adalah singkatan dari Kernel-based Virtual Machine, merupakan salah satu arsitektur virtualisasi bersumber terbuka (Open source) yang ditanamkan kedalam linux kernel." />
+<meta property="og:article:published_time" content="2017-01-30" />
+<meta property="og:article:modified_time" content="2017-04-01">
+<meta itemprop="dateModified" content="2017-01-30" />
+<meta property="og:article:author" content="andy" >
+<meta property="og:article:tag" content="virtualisasi">
+<meta property="og:article:tag" content="debian">
+<meta property="og:article:tag" content="GNU/Linux">
+<meta property="og:article:tag" content="virtual mesin">
+<meta property="og:article:tag" content="vm">
 <meta property="og:image" content="https://andyzs.net/static/img/ava.jpeg" />
 <meta property="og:image:type" content="image/jpeg" />
 <meta name="twitter:image" content="https://andyzs.net/static/img/ava.jpeg" />
 <meta itemprop="image" content="https://andyzs.net/static/img/ava.jpeg" />
+
 <link href="https://andyzs.net/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="an unfinished blogs ATOM Feed"/>
 <link href='//fonts.googleapis.com/css?family=Open+Sans:800italic' rel='stylesheet' type='text/css'>
 <link href='//fonts.googleapis.com/css?family=Oswald' rel='stylesheet' type='text/css'>
@@ -73,73 +72,57 @@
 
     <div class="uk-grid" data-uk-grid-margin>
 
-<div class="uk-width-medium-4-5">
-    <h1 class="uk-heading-large">Categories</h1>
-    <h2><a href="https://andyzs.net/category/freebsd.html" class="uk-link-muted">Freebsd</a></h2>
+<div class="mg-container-social uk-width-medium-1-10 uk-hidden-small">
 
-        <article class="uk-article">
-            <a href="https://andyzs.net/Install-apache-mysql-php-freebsd.html" class="uk-article-title uk-link-muted mg-list-title">Install dan Konfigurasi Apache, MySQL, PHP7 dan Wordpress di FreeBSD 11 Server</a>
-            <p class="uk-article-meta">
-                <time datetime="2016-10-05">Wed 05 October 2016</time>
-            </p>
-            <p>Pada tutorial ini saya akan membahas cara membangun web server untuk aplikasi php(kita akan menggunakan CMS Wordpress) pada FreeBSD 11 dengan FAMP(FreeBSD, Apache, MariaDB dan Php) stack di FreeBSD server 11.0 setup yang akan kita buat adalah: FreeBSD 11.0-RELEASE amd64 Apache24-2.4.25.1 PHP70-7.0.14 mod_php70-7.0.14 php70-extensions-1.1 MariaDB-100-server WordPress 4.X Pertama-tama sebelum melakukan instalasi kita akan memastikan system dan ports tree kita sudah terupdate semua. % sudo freebsd-update fetch && sudo freebsd-update install lalu update ports tree % sudo...</p>
-        </article>
-        
+    <div class="uk-panel" id="mg-panel-social">
+        <ul class="uk-nav uk-nav-side">
+            <li>
+            <a href="https://www.facebook.com/sharer/sharer.php?u=https://andyzs.net/virtualisasi-dengan-kvm-di-debian-sid-gnulinux.html" onclick="javascript:window.open(this.href,'', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=300,width=600');return false;" taget="_blank" class="uk-button"><i class="uk-icon-facebook-square"></i> Share</a>
+            </li>
+            <li>
+            <a href="https://twitter.com/intent/tweet?text=Virtualisasi%20dengan%20KVM%20di%20Debian%20SID%20GNU/Linux&url=https://andyzs.net/virtualisasi-dengan-kvm-di-debian-sid-gnulinux.html&via=andyzzzs" onclick="javascript:window.open(this.href,'', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=600,width=600');return false;" class="uk-button" target="_blank"><i class="uk-icon-twitter"></i> Tweet</a>
+            </li>
+            <li>
+            <a href="https://plus.google.com/share?url=https://andyzs.net/virtualisasi-dengan-kvm-di-debian-sid-gnulinux.html" onclick="javascript:window.open(this.href,'', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=600,width=600');return false;" target="_blank" class="uk-button"><i class="uk-icon-google-plus-square"></i> Share</a>
+            </li>
+        </ul>
+    </div>
 
-        <article class="uk-article">
-            <a href="https://andyzs.net/Install-hiawatha-mysql-php-on-freebsd.html" class="uk-article-title uk-link-muted mg-list-title">Install Hiawatha, php70-fpm FreeBSD 11.0-RELEASE</a>
-            <p class="uk-article-meta">
-                <time datetime="2014-12-19">Fri 19 December 2014</time>
-            </p>
-            <p>Hiawatha adalah webserver ringan yang mengedepankan fitur keamanan atau securitynya, mungkin hiawatha tidak memiliki fitur sebanyak apache ataupun kecepatan seperti nginx tapi hiawtaha dengan ukurannya yang kecil dan fitur keamanan lebih yang ditawarkannya dapat dijadikan sebagai alternatif webserver gratis selain apache dan ngninx. Hiawatha adalah software crossplatform dan dapat dijalankan dihampir semua unix-like OS, dan sistem operasi FreeBSD dan dapat dengan mudah diinstall melalui ports tree ataupun package manager. Pada tutorial kali ini kita akan membahas...</p>
-        </article>
-        
+</div>
 
-        <hr>
+<div class="uk-width-medium-7-10">
 
-    <h2><a href="https://andyzs.net/category/misc.html" class="uk-link-muted">Misc</a></h2>
+    <article class="uk-article">
+        <h1 class="uk-heading-large uk-article-title" itemprop="name">Virtualisasi dengan KVM di Debian SID GNU/Linux</h1>
+        <p class="uk-article-meta"><time datetime="2017-01-30" itemprop="datePublished">Mon 30 January 2017</time> in <a href="https://andyzs.net/category/virtualisasi.html">Virtualisasi</a>, <br class="uk-visible-small"><i class="uk-icon-comment"></i> <a href="https://andyzs.net/virtualisasi-dengan-kvm-di-debian-sid-gnulinux.html#disqus_thread" itemprop="discussionUrl"></a></p>
 
-        <article class="uk-article">
-            <a href="https://andyzs.net/blogging-dengan-static-gen.html" class="uk-article-title uk-link-muted mg-list-title">Blogging dengan pelican dan github pages</a>
-            <p class="uk-article-meta">
-                <time datetime="2017-03-30">Thu 30 March 2017</time>
-            </p>
-            <p>Static website generator alias staticgen semakin hari semakin ramai digunakan sebagai blogging platform, teman-teman saya di grup telegram pegelinux pun kebanyakan blogging menggunakan staticgen ini sebagai blog enginenya, alasan dan platform yang digunakan berbeda-beda demikian juga tempat hostingnya. Ada yang menghostingnya di di github pages, gitlab pages ada pula yang menghostingnya di vps sendiri. Saya sendiri memilih pelican dan untuk tempat hostingnya adalah github pages. Alasan saya sendiri menggunakan pelican di github pages adalah...</p>
-        </article>
-        
+        <a href="https://www.facebook.com/sharer/sharer.php?u=https://andyzs.net/virtualisasi-dengan-kvm-di-debian-sid-gnulinux.html" onclick="javascript:window.open(this.href,'', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=300,width=600');return false;" taget="_blank" class="uk-button uk-visible-small"><i class="uk-icon-facebook-square"></i> Share</a>
+        <a href="https://twitter.com/intent/tweet?text=Virtualisasi%20dengan%20KVM%20di%20Debian%20SID%20GNU/Linux&url=https://andyzs.net/virtualisasi-dengan-kvm-di-debian-sid-gnulinux.html&via=andyzzzs" onclick="javascript:window.open(this.href,'', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=600,width=600');return false;" class="uk-button uk-visible-small" target="_blank"><i class="uk-icon-twitter"></i> Tweet</a>
+        <a href="https://plus.google.com/share?url=https://andyzs.net/virtualisasi-dengan-kvm-di-debian-sid-gnulinux.html" onclick="javascript:window.open(this.href,'', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=600,width=600');return false;" target="_blank" class="uk-button uk-visible-small"><i class="uk-icon-google-plus-square"></i> Share</a>
 
-        <article class="uk-article">
-            <a href="https://andyzs.net/Perintah dasar pada MySQL dan MariaDB CLI.html" class="uk-article-title uk-link-muted mg-list-title">Perintah atau command dasar pada MySQL dan MariaDB</a>
-            <p class="uk-article-meta">
-                <time datetime="2017-03-15">Wed 15 March 2017</time>
-            </p>
-            <p>Cukup banyak tool ber-GUI yang mempermudah dalam penggunaan MySQL/Mariadb modelnya pun cukup beragam dari yang web based seperti phpMyAdmin sampai desktop aplikasi seperti mysql workbench. Pada tulisan kali ini saya merangkum beberapa perintah-perintah dasar yang wajib diketahui, atau kalau perlu dihapal untuk penggunaan MySQL/Mariadb via CLI. Karena perintah ini sudah bisa mewakili beberapa hal dasar dalam pengaturan peladen (server). Berikut perintah-perintahnya: Login/Logout MySQL/Mariadb $ sudo mysql -u root -p'password' Untuk keluar dari Maridb/MySQL ketik quit atau \q. Menampilkan...</p>
-        </article>
-        
+        <p class="uk-article-lead" itemprop="description">Status : hidden Slug: install-kvm-debian-linux Authors: andy Summary: Instalasi qemu/kvm di debian linux, virtualisasi dengan linux kvm KVM adalah singkatan dari Kernel-based Virtual Machine, merupakan salah satu arsitektur virtualisasi bersumber terbuka (Open source) yang ditanamkan kedalam linux kernel.</p>
+        <section itemprop="articleBody"><p>Status : hidden
+Slug: install-kvm-debian-linux
+Authors: andy
+Summary: Instalasi qemu/kvm di debian linux, virtualisasi dengan linux kvm</p>
+<p>KVM adalah singkatan dari <em>Kernel-based Virtual Machine</em>, merupakan salah satu arsitektur virtualisasi bersumber terbuka (<em>Open source</em>) yang ditanamkan kedalam linux kernel. </p></section>
+        <hr class="uk-article-divider">
+    </article>
 
-        <article class="uk-article">
-            <a href="https://andyzs.net/menjalankan multi akun dengan telegram desktop.html" class="uk-article-title uk-link-muted mg-list-title">Menjalankan Telegram Desktop dengan Multi Akun di Komputer</a>
-            <p class="uk-article-meta">
-                <time datetime="2017-03-01">Wed 01 March 2017</time>
-            </p>
-            <p>Telegram merupakan aplikasi perpesanan instan yang cukup populer digunakan. Keunggulan Telegram terletak pada chat berbasis awan (cloud-based). Dengan demikian, kita dapat merasakan Telegram dapat digunakan banyak perangkat (multi-device) tanpa kehilangan chat. Karena chat tersinkronisasi dari Telegram client ke server. Sebagian dari kita mungkin ada yang butuh menggunakan banyak akun Telegram. Alasanya beragam, entah itu untuk memisahkan akun khusus bisnis atau kantor dengan akun personal. Atau hanya sekadar ingin membuat untuk dimasukan dalam grup / channel, dan...</p>
-        </article>
-        
+    <div id="disqus_thread"></div>
+    <script type="text/javascript">
+    /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+    var disqus_shortname = 'andyzs-net'; // required: replace example with your forum shortname
 
-        <hr>
-
-    <h2><a href="https://andyzs.net/category/virtualisasi.html" class="uk-link-muted">Virtualisasi</a></h2>
-
-        <article class="uk-article">
-            <a href="https://andyzs.net/virtualisasi-dengan-kvm-di-debian-sid-gnulinux.html" class="uk-article-title uk-link-muted mg-list-title">Virtualisasi dengan KVM di Debian SID GNU/Linux</a>
-            <p class="uk-article-meta">
-                <time datetime="2017-01-30">Mon 30 January 2017</time>
-            </p>
-            <p>Status : hidden Slug: install-kvm-debian-linux Authors: andy Summary: Instalasi qemu/kvm di debian linux, virtualisasi dengan linux kvm KVM adalah singkatan dari Kernel-based Virtual Machine, merupakan salah satu arsitektur virtualisasi bersumber terbuka (Open source) yang ditanamkan kedalam linux kernel....</p>
-        </article>
-        
-
-        <hr>
+    /* * * DON'T EDIT BELOW THIS LINE * * */
+    (function() {
+     var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+     dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+     (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+     })();
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+    <a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
 
 </div>
 
@@ -156,7 +139,7 @@
                     <li class="uk-nav-header">Categories</li>
                     <li ><a href="https://andyzs.net/category/freebsd.html">FreeBSD</a></li>
                     <li ><a href="https://andyzs.net/category/misc.html">Misc</a></li>
-                    <li ><a href="https://andyzs.net/category/virtualisasi.html">Virtualisasi</a></li>
+                    <li class="uk-active"><a href="https://andyzs.net/category/virtualisasi.html">Virtualisasi</a></li>
                     <li class="uk-nav-header">Pages</li>
 
                     <li >
@@ -241,7 +224,7 @@
             <li class="uk-nav-header">Categories</li>
             <li ><a href="https://andyzs.net/category/freebsd.html">FreeBSD</a></li>
             <li ><a href="https://andyzs.net/category/misc.html">Misc</a></li>
-            <li ><a href="https://andyzs.net/category/virtualisasi.html">Virtualisasi</a></li>
+            <li class="uk-active"><a href="https://andyzs.net/category/virtualisasi.html">Virtualisasi</a></li>
             <li class="uk-nav-header">Pages</li>
             <li >
                 <a href="https://andyzs.net/pages/tentang/">Tentang</a>

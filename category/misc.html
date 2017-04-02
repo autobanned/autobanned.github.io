@@ -77,115 +77,135 @@
 
 
             <article class="uk-article" itemtype="http://schema.org/BlogPosting" itemscope="itemscope" itemprop="blogPost">
+                <a href="https://andyzs.net/blogging-dengan-static-gen.html" class="uk-article-title uk-link-muted" itemprop="name">Blogging dengan pelican dan github pages</a>
+                <p class="uk-article-meta"><time datetime="2017-03-30" itemprop="datePublished">Thu 30 March 2017</time> • <a href="https://andyzs.net/category/misc.html">Misc</a> • <br class="uk-visible-small"><i class="uk-icon-comment"></i> <a href="https://andyzs.net/blogging-dengan-static-gen.html#disqus_thread" itemprop="discussionUrl"></a></p>
+</p>
+                <p class="uk-article-lead" itemprop="description">Blogging hemat ala geek dengan static gen</p>
+                <section itemprop="articleBody"><p>Static website generator alias staticgen semakin hari semakin ramai digunakan sebagai blogging platform,  teman-teman saya di grup telegram pegelinux pun kebanyakan blogging menggunakan staticgen ini sebagai blog enginenya, alasan dan platform yang digunakan berbeda-beda demikian juga tempat hostingnya. Ada yang menghostingnya di di github pages, gitlab pages ada pula yang menghostingnya di vps sendiri. Saya sendiri memilih pelican dan untuk tempat hostingnya adalah github pages. Alasan saya sendiri menggunakan pelican di github pages adalah untuk hemat dan belajar. </p>
+<p>Pelican adalah static site generator yang dibuat menggunakan <a href="https://www.python.org/">python</a> yang support <strong>markdwon</strong> dan <strong>reStructuredText</strong> untuk penulisannya, sedangkan untuk pembuatan themanya menggunakan <a href="jinja.pocoo.org">jinja2</a> template.</p>
+<p><code>Pelican</code> dapat berjalan di python 2 maupun 3. Untuk menginstall <code>pelican</code> dapat diinstall dengan beberapa cara, paling mudah adalah dengan menggunakan <code>manajer pemaketan</code> atau  <em>package manager</em> di distribusi linux, atau menggunakan <code>python-pip</code>.</p>
+<p>Disini saya menggunakan arch-linux, untuk mengisntall <code>pelican</code> menggunakan <code>package manager</code> maka kita dapat dengan mudah menginstallnya melalui <code>pacman</code> seperti menginstall package lainnya.
+Untuk menginstall pelican dan markdown di arch cukup melakukan seperti ini:</p>
+<div class="highlight"><pre><span></span><span class="cp"># pacman -S pelican python-markdown</span>
+</pre></div>
+
+
+<p>atau jika kita mau mendapatkan paket yang bleeding-edge dari git maka kita bisa menginstall melalui <code>AUR</code></p>
+<div class="highlight"><pre><span></span><span class="err">$</span> <span class="n">yaourt</span> <span class="o">-</span><span class="n">S</span> <span class="n">pelican</span><span class="o">-</span><span class="n">git</span>
+</pre></div>
+
+
+<p>Untuk menginstall dengan <code>python-pip</code> maka lakukan cara berikut:</p>
+<div class="highlight"><pre><span></span><span class="n">pip</span> <span class="n">install</span> <span class="n">pelican</span> <span class="n">markdown</span>
+</pre></div>
+
+
+<p>Selain cara diatas <code>pelican</code> juga dapat diinstall secara local menggunakan <code>pip</code> didalam <code>virtualenv</code>:</p>
+<div class="highlight"><pre><span></span><span class="err">$</span> <span class="n">virtualenv</span> <span class="o">~/</span><span class="n">direktori</span><span class="o">/</span><span class="n">pelican</span>
+<span class="err">$</span> <span class="n">cd</span> <span class="o">~/</span><span class="n">direktori</span><span class="o">/</span><span class="n">pelican</span>
+<span class="n">source</span> <span class="n">bin</span><span class="o">/</span><span class="n">activate</span>
+<span class="n">pip</span> <span class="n">install</span> <span class="n">pelican</span> <span class="n">markdown</span>
+</pre></div>
+
+
+<p>Setelah semua paket terinstall maka kita dapat dengan mudah memulai membuat proyek <code>pelican</code> dengan menjalankan perintah <code>pelican-quickstart</code> yang kemudian kita akan dilanjutkan dengan beberapa pertanyaan seperti direktori tempat mengintsallnya, author dan lain-lain seperti berikut ini:</p>
+<div class="highlight"><pre><span></span><span class="o">/</span><span class="nt">home</span><span class="o">/</span><span class="nt">user</span><span class="o">/</span><span class="nt">pelican</span><span class="o">$</span> <span class="nt">pelican-quickstart</span>
+<span class="nt">Where</span> <span class="nt">do</span> <span class="nt">you</span> <span class="nt">want</span> <span class="nt">to</span> <span class="nt">create</span> <span class="nt">your</span> <span class="nt">new</span> <span class="nt">web</span> <span class="nt">site</span><span class="o">?</span> <span class="o">[.]</span>
+<span class="nt">What</span> <span class="nt">will</span> <span class="nt">be</span> <span class="nt">the</span> <span class="nt">title</span> <span class="nt">of</span> <span class="nt">this</span> <span class="nt">web</span> <span class="nt">site</span><span class="o">?</span>
+<span class="o">&gt;</span> <span class="nt">pelican</span> <span class="nt">blogs</span>
+<span class="nt">Who</span> <span class="nt">will</span> <span class="nt">be</span> <span class="nt">the</span> <span class="nt">author</span> <span class="nt">of</span> <span class="nt">this</span> <span class="nt">web</span> <span class="nt">site</span><span class="o">?</span>
+<span class="o">&gt;</span> <span class="nt">andy</span>
+<span class="nt">What</span> <span class="nt">will</span> <span class="nt">be</span> <span class="nt">the</span> <span class="nt">default</span> <span class="nt">language</span> <span class="nt">of</span> <span class="nt">this</span> <span class="nt">web</span> <span class="nt">site</span><span class="o">?</span> <span class="o">[</span><span class="nt">en</span><span class="o">]</span>
+<span class="nt">Do</span> <span class="nt">you</span> <span class="nt">want</span> <span class="nt">to</span> <span class="nt">specify</span> <span class="nt">a</span> <span class="nt">URL</span> <span class="nt">prefix</span><span class="o">?</span> <span class="nt">e</span><span class="p">.</span><span class="nc">g</span><span class="o">.,</span> <span class="nt">http</span><span class="o">://</span><span class="nt">example</span><span class="p">.</span><span class="nc">com</span>   <span class="o">(</span><span class="nt">Y</span><span class="o">/</span><span class="nt">n</span><span class="o">)</span>
+<span class="o">&gt;</span> <span class="nt">Y</span>
+<span class="nt">What</span> <span class="nt">is</span> <span class="nt">your</span> <span class="nt">URL</span> <span class="nt">prefix</span><span class="o">?</span> <span class="o">(</span><span class="nt">see</span> <span class="nt">above</span> <span class="nt">example</span><span class="o">;</span> <span class="nt">no</span> <span class="nt">trailing</span> <span class="nt">slash</span><span class="o">)</span>
+<span class="o">&gt;</span> <span class="nt">http</span><span class="o">://</span><span class="nt">andyzs</span><span class="p">.</span><span class="nc">github</span><span class="p">.</span><span class="nc">io</span>
+<span class="nt">Do</span> <span class="nt">you</span> <span class="nt">want</span> <span class="nt">to</span> <span class="nt">enable</span> <span class="nt">article</span> <span class="nt">pagination</span><span class="o">?</span> <span class="o">(</span><span class="nt">Y</span><span class="o">/</span><span class="nt">n</span><span class="o">)</span>
+<span class="o">&gt;</span> <span class="nt">y</span>
+<span class="nt">How</span> <span class="nt">many</span> <span class="nt">articles</span> <span class="nt">per</span> <span class="nt">page</span> <span class="nt">do</span> <span class="nt">you</span> <span class="nt">want</span><span class="o">?</span> <span class="o">[</span><span class="nt">10</span><span class="o">]</span>
+<span class="nt">Do</span> <span class="nt">you</span> <span class="nt">want</span> <span class="nt">to</span> <span class="nt">generate</span> <span class="nt">a</span> <span class="nt">Fabfile</span><span class="o">/</span><span class="nt">Makefile</span> <span class="nt">to</span> <span class="nt">automate</span> <span class="nt">generation</span> <span class="nt">and</span> <span class="nt">publishing</span><span class="o">?</span> <span class="o">(</span><span class="nt">Y</span><span class="o">/</span><span class="nt">n</span><span class="o">)</span>
+<span class="o">&gt;</span> <span class="nt">y</span>
+<span class="nt">Do</span> <span class="nt">you</span> <span class="nt">want</span> <span class="nt">an</span> <span class="nt">auto-reload</span> <span class="o">&amp;</span> <span class="nt">simpleHTTP</span> <span class="nt">script</span> <span class="nt">to</span> <span class="nt">assist</span> <span class="nt">with</span> <span class="nt">theme</span> <span class="nt">and</span> <span class="nt">site</span> <span class="nt">development</span><span class="o">?</span> <span class="o">(</span><span class="nt">Y</span><span class="o">/</span><span class="nt">n</span><span class="o">)</span>
+<span class="o">&gt;</span> <span class="nt">y</span>
+<span class="nt">Do</span> <span class="nt">you</span> <span class="nt">want</span> <span class="nt">to</span> <span class="nt">upload</span> <span class="nt">your</span> <span class="nt">website</span> <span class="nt">using</span> <span class="nt">FTP</span><span class="o">?</span> <span class="o">(</span><span class="nt">y</span><span class="o">/</span><span class="nt">N</span><span class="o">)</span>
+<span class="o">&gt;</span> <span class="nt">n</span>
+<span class="nt">Do</span> <span class="nt">you</span> <span class="nt">want</span> <span class="nt">to</span> <span class="nt">upload</span> <span class="nt">your</span> <span class="nt">website</span> <span class="nt">using</span> <span class="nt">SSH</span><span class="o">?</span> <span class="o">(</span><span class="nt">y</span><span class="o">/</span><span class="nt">N</span><span class="o">)</span>
+<span class="o">&gt;</span> <span class="nt">n</span>
+<span class="nt">Do</span> <span class="nt">you</span> <span class="nt">want</span> <span class="nt">to</span> <span class="nt">upload</span> <span class="nt">your</span> <span class="nt">website</span> <span class="nt">using</span> <span class="nt">Dropbox</span><span class="o">?</span> <span class="o">(</span><span class="nt">y</span><span class="o">/</span><span class="nt">N</span><span class="o">)</span>
+<span class="o">&gt;</span> <span class="nt">n</span>
+<span class="nt">Do</span> <span class="nt">you</span> <span class="nt">want</span> <span class="nt">to</span> <span class="nt">upload</span> <span class="nt">your</span> <span class="nt">website</span> <span class="nt">using</span> <span class="nt">S3</span><span class="o">?</span> <span class="o">(</span><span class="nt">y</span><span class="o">/</span><span class="nt">N</span><span class="o">)</span>
+<span class="o">&gt;</span> <span class="nt">n</span>
+<span class="nt">Do</span> <span class="nt">you</span> <span class="nt">want</span> <span class="nt">to</span> <span class="nt">upload</span> <span class="nt">your</span> <span class="nt">website</span> <span class="nt">using</span> <span class="nt">Rackspace</span> <span class="nt">Cloud</span> <span class="nt">Files</span><span class="o">?</span> <span class="o">(</span><span class="nt">y</span><span class="o">/</span><span class="nt">N</span><span class="o">)</span>
+<span class="o">&gt;</span> <span class="nt">n</span>
+</pre></div>
+
+
+<p>Setelah semua pertanyaan diatas selesai terjawab maka proyek <code>pelican</code> kita siap diisi konten, jika kita menjalankan perintah <code>tree</code> didalam direktori proyek pelican kita, maka kita akan melihat ini :</p>
+<div class="highlight"><pre><span></span><span class="o">$</span> <span class="nt">tree</span>
+<span class="err">├──</span> <span class="nt">Makefile</span>
+<span class="err">├──</span> <span class="nt">content</span>
+<span class="err">├──</span> <span class="nt">develop_server</span><span class="p">.</span><span class="nc">sh</span>
+<span class="err">├──</span> <span class="nt">fabfile</span><span class="p">.</span><span class="nc">py</span>
+<span class="err">├──</span> <span class="nt">output</span>
+<span class="err">├──</span> <span class="nt">pelicanconf</span><span class="p">.</span><span class="nc">py</span>
+<span class="err">└──</span> <span class="nt">publishconf</span><span class="p">.</span><span class="nc">py</span>
+</pre></div>
+
+
+<p>Penjelasan singkat :
+* content: direktori tempat artikel berformat <code>markdown</code> atau <code>reStructuredText</code> ditulis, untuk membuat halaman seperti tentang, privasi dan lain-lain ataupun direktori tempat menyimpan image dapat dibuat dengan membuat direktori baru didalam direktori konten ini. 
+Contoh </p>
+<div class="highlight"><pre><span></span><span class="err">$</span> <span class="n">mkdir</span> <span class="n">content</span><span class="o">/</span><span class="n">pages</span>
+<span class="err">$</span> <span class="n">mkdir</span> <span class="n">content</span><span class="o">/</span><span class="n">images</span>
+</pre></div>
+
+
+<ul>
+<li>output adalah direktori tempat pelican meletakan file yang di konversi dari markdown format kebentuk HTML secara <em>default</em></li>
+<li><code>pelicanconf.py</code> file konfigurasi pelican di file ini sebagian besar setting di letakan seperti THEME, PATH, TIMEZONE dll</li>
+<li><code>publishconf.py</code> file konfigurasi untuk publikasi, didalamnya terdapat line 
+<code>from pelicanconf import *</code> yang berarti file ini akan mengimpor settingan dari <code>pelicanconf.py</code> juga, settingan yang tidak perlu untuk <em>development</em> seperti analytics dan comment system seperti disqus diletakan di file ini.</li>
+<li><code>Makefile</code> seperti file <code>makefile</code> pada umumnya, berisi perintah dan deklarasi yang dapat di lakukan dengan <code>make</code> <em>command</em>.</li>
+<li>develop_server.sh adalah script untuk menjalankan <em>built-in</em> server untuk lokal <em>development</em>.</li>
+</ul>
+<p>Buatlah postingan pertama kita dan save dalam format <code>.mkd</code>, <code>.md</code> atau <code>.rst</code> didalam direktori <code>content</code>, setelah selesai maka jalankan perintah:
+<code>$ make html</code>:
+Untuk mengecek hasil blog pelican kita sebelum di publish ke <code>Github Pages</code> maka kita bisa menjalankan
+<code>$ make devserver</code></p>
+<p>Setelah kita merasa blog sudah siap untuk di publikasikan maka <a href="https://pages.github.com/">buatlah github pages</a> 
+selanjutnya ubah settingan di <code>publishconf.py</code>:
+dari 
+<code>DELETE_OUTPUT_DIRECTORY = True</code>
+menjadi
+<code>DELETE_OUTPUT_DIRECTORY = False</code></p>
+<p>Setelah itu jalankan perintah <code>make publish</code>, selanjutnya untuk mempublish blog kita ke github pages maka lakukan seperti berikut:</p>
+<div class="highlight"><pre><span></span><span class="err">$</span> <span class="n">cd</span> <span class="n">output</span>
+<span class="err">$</span> <span class="n">git</span> <span class="n">init</span>
+<span class="err">$</span> <span class="n">git</span> <span class="n">remote</span> <span class="n">add</span> <span class="n">origin</span> <span class="nl">https</span><span class="p">:</span><span class="c1">//github.com/username/username.github.io.git</span>
+<span class="err">$</span> <span class="n">git</span> <span class="n">add</span> <span class="o">--</span><span class="n">all</span>
+<span class="err">$</span> <span class="n">git</span> <span class="n">commit</span> <span class="o">-</span><span class="n">m</span> <span class="s">&quot;commit message&quot;</span>
+<span class="err">$</span> <span class="n">git</span> <span class="n">push</span> <span class="n">origin</span> <span class="n">master</span>
+</pre></div>
+
+
+<p>Yup dengan demikian blog pelican kita sudah terhosting di github pages dan bisa diakses, untuk custom domain, custom 404 make bisa membaca referensi disini:
+https://help.github.com/articles/using-a-custom-domain-with-github-pages/
+https://www.google.com/search?q=github+custom+404&amp;ie=utf-8&amp;oe=utf-8</p>
+<p>Segitu dulu deh postingannya kali ini 😅😅😅</p></section>
+                <a href="https://andyzs.net/blogging-dengan-static-gen.html#disqus_thread"></a>
+                <hr class="uk-article-divider">
+            </article>
+
+
+        <article class="uk-article" itemtype="http://schema.org/BlogPosting" itemscope="itemscope" itemprop="blogPost">
                 <a href="https://andyzs.net/Perintah dasar pada MySQL dan MariaDB CLI.html" class="uk-article-title uk-link-muted" itemprop="name">Perintah atau command dasar pada MySQL dan MariaDB</a>
                 <p class="uk-article-meta"><time datetime="2017-03-15" itemprop="datePublished">Wed 15 March 2017</time> • <a href="https://andyzs.net/category/misc.html">Misc</a> • <br class="uk-visible-small"><i class="uk-icon-comment"></i> <a href="https://andyzs.net/Perintah dasar pada MySQL dan MariaDB CLI.html#disqus_thread" itemprop="discussionUrl"></a></p>
 </p>
                 <p class="uk-article-lead" itemprop="description">Perintah dasar untuk mengatur dan mengadministrasi mysql dan mariadb melalu shell atau command line.</p>
-                <section itemprop="articleBody"><p>Cukup banyak tool ber-GUI yang mempermudah dalam penggunaan MySQL/Mariadb modelnya pun cukup beragam dari yang web based seperti phpMyAdmin sampai desktop aplikasi seperti mysql workbench. </p>
-<p>Pada tulisan kali ini saya merangkum beberapa perintah-perintah dasar yang wajib diketahui, atau kalau perlu dihapal untuk penggunaan MySQL/Mariadb via CLI. Karena perintah ini sudah bisa mewakili beberapa hal dasar dalam pengaturan peladen (server).</p>
-<p>Berikut perintah-perintahnya:</p>
-<ul>
-<li><strong>Login/Logout MySQL/Mariadb</strong></li>
-</ul>
-<div class="highlight"><pre><span></span><span class="x">$ sudo mysql -u root -p&#39;password&#39;</span>
-</pre></div>
-
-
-<p>Untuk keluar dari Maridb/MySQL ketik <code>quit</code> atau <code>\q</code>.</p>
-<ul>
-<li><strong>Menampilkan Seluruh Isi Database</strong></li>
-</ul>
-<div class="highlight"><pre><span></span><span class="x">show databases;</span>
-</pre></div>
-
-
-<ul>
-<li><strong>Menampilkan Seluruh User</strong></li>
-</ul>
-<div class="highlight"><pre><span></span><span class="x">SELECT User FROM mysql.user;</span>
-</pre></div>
-
-
-<ul>
-<li><strong>Membuat Database</strong></li>
-</ul>
-<div class="highlight"><pre><span></span><span class="x">create database nama_database;</span>
-</pre></div>
-
-
-<ul>
-<li><strong>Membuat User Baru</strong></li>
-</ul>
-<div class="highlight"><pre><span></span><span class="x">create user nama_pengguna@localhost identified by &#39;passwordAnda&#39;;</span>
-</pre></div>
-
-
-<ul>
-<li><strong>Mengganti Password User</strong></li>
-</ul>
-<div class="highlight"><pre><span></span><span class="x">SET PASSWORD FOR &#39;user&#39;@&#39;localhost&#39; = PASSWORD(&#39;isi_password_baru&#39;);</span>
-<span class="x">FLUSH PRIVILEGES;</span>
-</pre></div>
-
-
-<ul>
-<li><strong>Memberi Hak Pada User</strong></li>
-</ul>
-<div class="highlight"><pre><span></span><span class="x">grant all privileges on nama_database.* to user@localhost;</span>
-<span class="x">flush privileges;</span>
-</pre></div>
-
-
-<ul>
-<li><strong>Menghapus User</strong></li>
-</ul>
-<div class="highlight"><pre><span></span><span class="x">DROP USER &#39;user&#39;@&#39;localhost&#39;;</span>
-</pre></div>
-
-
-<ul>
-<li><strong>Menghapus Database</strong></li>
-</ul>
-<div class="highlight"><pre><span></span><span class="x">truncate nama_database;</span>
-<span class="x">drop database nama_database;</span>
-</pre></div>
-
-
-<p><strong>NB</strong>: Truncate untuk menghapus seluruh table dalam database Anda, jika tidak ada table bisa langsung drop.</p>
-<ul>
-<li><strong>Backup MySQL/Mariadb</strong></li>
-</ul>
-<div class="highlight"><pre><span></span><span class="x">$ sudo mysqldump -u root -p&#39;password&#39; nama_database &gt; database_backup.sql</span>
-</pre></div>
-
-
-<ul>
-<li><strong>Restore Database</strong></li>
-</ul>
-<div class="highlight"><pre><span></span><span class="x">$ sudo mysql -u root -p&#39;password&#39;</span>
-</pre></div>
-
-
-<p>Lalu ketik:</p>
-<div class="highlight"><pre><span></span><span class="x">use nama_database;</span>
-<span class="x">source /direktori/database/berformat.sql;</span>
-</pre></div>
-
-
-<p>Atau dapat menggunaka one line command atau perintah sebaris</p>
-<div class="highlight"><pre><span></span><span class="x">$ sudo mysqldump -u root -p&#39;password&#39; nama_database &lt; database_backup.sql</span>
-</pre></div>
-
-
-<p>Segitu dulu tutorialnya, semoga bermanfaat :)</p>
-<p>Credit :</p>
-<ul>
-<li><a href="https://sitsuali.com">situsali</a></li>
-<li><a href="https://dev.mysql.com/doc">mysql doc</a></li>
-</ul></section>
-                <a href="https://andyzs.net/Perintah dasar pada MySQL dan MariaDB CLI.html#disqus_thread"></a>
+                <p>Cukup banyak tool ber-GUI yang mempermudah dalam penggunaan MySQL/Mariadb modelnya pun cukup beragam dari yang web based seperti phpMyAdmin sampai desktop aplikasi seperti mysql workbench. Pada tulisan kali ini saya merangkum beberapa perintah-perintah dasar yang wajib diketahui, atau kalau perlu dihapal untuk penggunaan MySQL/Mariadb via CLI. Karena perintah ini sudah bisa mewakili beberapa hal dasar dalam pengaturan peladen (server). Berikut perintah-perintahnya: Login/Logout MySQL/Mariadb $ sudo mysql -u root -p'password' Untuk keluar dari Maridb/MySQL ketik quit atau \q. Menampilkan...</p>
+                <a href="https://andyzs.net/Perintah dasar pada MySQL dan MariaDB CLI.html">Read More</a>
                 <hr class="uk-article-divider">
-            </article>
+        </article>
 
 
         <article class="uk-article" itemtype="http://schema.org/BlogPosting" itemscope="itemscope" itemprop="blogPost">
@@ -214,6 +234,7 @@
                     <li class="uk-nav-header">Categories</li>
                     <li ><a href="https://andyzs.net/category/freebsd.html">FreeBSD</a></li>
                     <li class="uk-active"><a href="https://andyzs.net/category/misc.html">Misc</a></li>
+                    <li ><a href="https://andyzs.net/category/virtualisasi.html">Virtualisasi</a></li>
                     <li class="uk-nav-header">Pages</li>
 
                     <li >
@@ -298,6 +319,7 @@
             <li class="uk-nav-header">Categories</li>
             <li ><a href="https://andyzs.net/category/freebsd.html">FreeBSD</a></li>
             <li class="uk-active"><a href="https://andyzs.net/category/misc.html">Misc</a></li>
+            <li ><a href="https://andyzs.net/category/virtualisasi.html">Virtualisasi</a></li>
             <li class="uk-nav-header">Pages</li>
             <li >
                 <a href="https://andyzs.net/pages/tentang/">Tentang</a>

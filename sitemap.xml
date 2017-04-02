@@ -2,12 +2,22 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
   <url>
+    <loc>https://andyzs.net/blogging-dengan-static-gen.html</loc>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
     <loc>https://andyzs.net/Perintah dasar pada MySQL dan MariaDB CLI.html</loc>
     <priority>0.8</priority>
   </url>
 
   <url>
     <loc>https://andyzs.net/menjalankan multi akun dengan telegram desktop.html</loc>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://andyzs.net/virtualisasi-dengan-kvm-di-debian-sid-gnulinux.html</loc>
     <priority>0.8</priority>
   </url>
 
