@@ -6,9 +6,9 @@
 <head>
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
-<title>Virtualisasi dengan KVM di Debian SID GNU/Linux</title>
+<title>Virtualisasi dengan KVM dan VirtManager di Debian SID GNU/Linux</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="description" content="Status : hidden Slug: install-kvm-debian-linux Authors: andy Summary: Instalasi qemu/kvm di debian linux, virtualisasi dengan linux kvm KVM adalah singkatan dari Kernel-based Virtual Machine, merupakan salah satu arsitektur virtualisasi bersumber terbuka (Open source) yang ditanamkan kedalam linux kernel.">
+<meta name="description" content="Instalasi qemu/kvm di debian linux, virtualisasi dengan linux kvm">
 <link rel="shortcut icon" href="https://andyzs.net/favicon.ico" type="">
 <meta name="author" content="andyzeff" >
 <meta name="copyright" content="andy">
@@ -16,17 +16,17 @@
 <meta name="twitter:site" content="@andyzzzs" />
 <meta property="og:site_name" content="an unfinished blogs" />
 
-<meta property="og:title" content="Virtualisasi dengan kvm di debian sid gnu/linux" />
+<meta property="og:title" content="Virtualisasi dengan kvm dan virtmanager di debian sid gnu/linux" />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://andyzs.net/virtualisasi-dengan-kvm-di-debian-sid-gnulinux.html" />
-<meta name="twitter:title" content="Virtualisasi dengan kvm di debian sid gnu/linux" />
-<meta name="twitter:url" content="https://andyzs.net/virtualisasi-dengan-kvm-di-debian-sid-gnulinux.html" />
-<meta itemprop="url" content="https://andyzs.net/virtualisasi-dengan-kvm-di-debian-sid-gnulinux.html" />
-<meta property="og:description" content="Status : hidden Slug: install-kvm-debian-linux Authors: andy Summary: Instalasi qemu/kvm di debian linux, virtualisasi dengan linux kvm KVM adalah singkatan dari Kernel-based Virtual Machine, merupakan salah satu arsitektur virtualisasi bersumber terbuka (Open source) yang ditanamkan kedalam linux kernel." />
-<meta name="twitter:description" content="Status : hidden Slug: install-kvm-debian-linux Authors: andy Summary: Instalasi qemu/kvm di debian linux, virtualisasi dengan linux kvm KVM adalah singkatan dari Kernel-based Virtual Machine, merupakan salah satu arsitektur virtualisasi bersumber terbuka (Open source) yang ditanamkan kedalam linux kernel." />
-<meta property="og:article:published_time" content="2017-01-30" />
+<meta property="og:url" content="https://andyzs.net/install-kvm-virt-manager-debian-linux.html" />
+<meta name="twitter:title" content="Virtualisasi dengan kvm dan virtmanager di debian sid gnu/linux" />
+<meta name="twitter:url" content="https://andyzs.net/install-kvm-virt-manager-debian-linux.html" />
+<meta itemprop="url" content="https://andyzs.net/install-kvm-virt-manager-debian-linux.html" />
+<meta property="og:description" content="Instalasi qemu/kvm di debian linux, virtualisasi dengan linux kvm" />
+<meta name="twitter:description" content="Instalasi qemu/kvm di debian linux, virtualisasi dengan linux kvm" />
+<meta property="og:article:published_time" content="2017-03-31" />
 <meta property="og:article:modified_time" content="2017-04-01">
-<meta itemprop="dateModified" content="2017-01-30" />
+<meta itemprop="dateModified" content="2017-03-31" />
 <meta property="og:article:author" content="andy" >
 <meta property="og:article:tag" content="virtualisasi">
 <meta property="og:article:tag" content="debian">
@@ -77,13 +77,13 @@
     <div class="uk-panel" id="mg-panel-social">
         <ul class="uk-nav uk-nav-side">
             <li>
-            <a href="https://www.facebook.com/sharer/sharer.php?u=https://andyzs.net/virtualisasi-dengan-kvm-di-debian-sid-gnulinux.html" onclick="javascript:window.open(this.href,'', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=300,width=600');return false;" taget="_blank" class="uk-button"><i class="uk-icon-facebook-square"></i> Share</a>
+            <a href="https://www.facebook.com/sharer/sharer.php?u=https://andyzs.net/install-kvm-virt-manager-debian-linux.html" onclick="javascript:window.open(this.href,'', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=300,width=600');return false;" taget="_blank" class="uk-button"><i class="uk-icon-facebook-square"></i> Share</a>
             </li>
             <li>
-            <a href="https://twitter.com/intent/tweet?text=Virtualisasi%20dengan%20KVM%20di%20Debian%20SID%20GNU/Linux&url=https://andyzs.net/virtualisasi-dengan-kvm-di-debian-sid-gnulinux.html&via=andyzzzs" onclick="javascript:window.open(this.href,'', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=600,width=600');return false;" class="uk-button" target="_blank"><i class="uk-icon-twitter"></i> Tweet</a>
+            <a href="https://twitter.com/intent/tweet?text=Virtualisasi%20dengan%20KVM%20dan%20VirtManager%20di%20Debian%20SID%20GNU/Linux&url=https://andyzs.net/install-kvm-virt-manager-debian-linux.html&via=andyzzzs" onclick="javascript:window.open(this.href,'', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=600,width=600');return false;" class="uk-button" target="_blank"><i class="uk-icon-twitter"></i> Tweet</a>
             </li>
             <li>
-            <a href="https://plus.google.com/share?url=https://andyzs.net/virtualisasi-dengan-kvm-di-debian-sid-gnulinux.html" onclick="javascript:window.open(this.href,'', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=600,width=600');return false;" target="_blank" class="uk-button"><i class="uk-icon-google-plus-square"></i> Share</a>
+            <a href="https://plus.google.com/share?url=https://andyzs.net/install-kvm-virt-manager-debian-linux.html" onclick="javascript:window.open(this.href,'', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=600,width=600');return false;" target="_blank" class="uk-button"><i class="uk-icon-google-plus-square"></i> Share</a>
             </li>
         </ul>
     </div>
@@ -93,19 +93,46 @@
 <div class="uk-width-medium-7-10">
 
     <article class="uk-article">
-        <h1 class="uk-heading-large uk-article-title" itemprop="name">Virtualisasi dengan KVM di Debian SID GNU/Linux</h1>
-        <p class="uk-article-meta"><time datetime="2017-01-30" itemprop="datePublished">Mon 30 January 2017</time> in <a href="https://andyzs.net/category/virtualisasi.html">Virtualisasi</a>, <br class="uk-visible-small"><i class="uk-icon-comment"></i> <a href="https://andyzs.net/virtualisasi-dengan-kvm-di-debian-sid-gnulinux.html#disqus_thread" itemprop="discussionUrl"></a></p>
+        <h1 class="uk-heading-large uk-article-title" itemprop="name">Virtualisasi dengan KVM dan VirtManager di Debian SID GNU/Linux</h1>
+        <p class="uk-article-meta"><time datetime="2017-03-31" itemprop="datePublished">Fri 31 March 2017</time> in <a href="https://andyzs.net/category/gnulinux.html">GNU/Linux</a>, <br class="uk-visible-small"><i class="uk-icon-comment"></i> <a href="https://andyzs.net/install-kvm-virt-manager-debian-linux.html#disqus_thread" itemprop="discussionUrl"></a></p>
 
-        <a href="https://www.facebook.com/sharer/sharer.php?u=https://andyzs.net/virtualisasi-dengan-kvm-di-debian-sid-gnulinux.html" onclick="javascript:window.open(this.href,'', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=300,width=600');return false;" taget="_blank" class="uk-button uk-visible-small"><i class="uk-icon-facebook-square"></i> Share</a>
-        <a href="https://twitter.com/intent/tweet?text=Virtualisasi%20dengan%20KVM%20di%20Debian%20SID%20GNU/Linux&url=https://andyzs.net/virtualisasi-dengan-kvm-di-debian-sid-gnulinux.html&via=andyzzzs" onclick="javascript:window.open(this.href,'', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=600,width=600');return false;" class="uk-button uk-visible-small" target="_blank"><i class="uk-icon-twitter"></i> Tweet</a>
-        <a href="https://plus.google.com/share?url=https://andyzs.net/virtualisasi-dengan-kvm-di-debian-sid-gnulinux.html" onclick="javascript:window.open(this.href,'', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=600,width=600');return false;" target="_blank" class="uk-button uk-visible-small"><i class="uk-icon-google-plus-square"></i> Share</a>
+        <a href="https://www.facebook.com/sharer/sharer.php?u=https://andyzs.net/install-kvm-virt-manager-debian-linux.html" onclick="javascript:window.open(this.href,'', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=300,width=600');return false;" taget="_blank" class="uk-button uk-visible-small"><i class="uk-icon-facebook-square"></i> Share</a>
+        <a href="https://twitter.com/intent/tweet?text=Virtualisasi%20dengan%20KVM%20dan%20VirtManager%20di%20Debian%20SID%20GNU/Linux&url=https://andyzs.net/install-kvm-virt-manager-debian-linux.html&via=andyzzzs" onclick="javascript:window.open(this.href,'', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=600,width=600');return false;" class="uk-button uk-visible-small" target="_blank"><i class="uk-icon-twitter"></i> Tweet</a>
+        <a href="https://plus.google.com/share?url=https://andyzs.net/install-kvm-virt-manager-debian-linux.html" onclick="javascript:window.open(this.href,'', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=600,width=600');return false;" target="_blank" class="uk-button uk-visible-small"><i class="uk-icon-google-plus-square"></i> Share</a>
 
-        <p class="uk-article-lead" itemprop="description">Status : hidden Slug: install-kvm-debian-linux Authors: andy Summary: Instalasi qemu/kvm di debian linux, virtualisasi dengan linux kvm KVM adalah singkatan dari Kernel-based Virtual Machine, merupakan salah satu arsitektur virtualisasi bersumber terbuka (Open source) yang ditanamkan kedalam linux kernel.</p>
-        <section itemprop="articleBody"><p>Status : hidden
-Slug: install-kvm-debian-linux
-Authors: andy
-Summary: Instalasi qemu/kvm di debian linux, virtualisasi dengan linux kvm</p>
-<p>KVM adalah singkatan dari <em>Kernel-based Virtual Machine</em>, merupakan salah satu arsitektur virtualisasi bersumber terbuka (<em>Open source</em>) yang ditanamkan kedalam linux kernel. </p></section>
+        <p class="uk-article-lead" itemprop="description">Instalasi qemu/kvm di debian linux, virtualisasi dengan linux kvm</p>
+        <section itemprop="articleBody"><p>KVM adalah singkatan dari <em>Kernel-based Virtual Machine</em>, merupakan salah satu arsitektur virtualisasi bersumber terbuka (<em>Open source</em>) yang ditanamkan kedalam linux kernel. KVM merupakan virtualisasi penuh yang memanfaatkan extensi virtualisasi pada prosesor X86. Untuk menjalankan module KVM pada distribusi linux kita cukup mengenable extensi virtualisasi dari <code>BIOS</code> dan meload kernel modulenya <code>kvm.ko</code> atau jika kita hanya ingin module spesifik dengan vendor hardware yang kita gunakan yang di <em>load</em> maka untuk intel <code>kvm-intel.ko</code> dan untuk AMD <code>kvm-amd.ko</code>.</p>
+<p>Alasan saya sendiri lebih memilih qemu/kvm dibanding <code>virtualbox</code> atau <code>vmware</code> adalah selain open source, di virtualbox dan vmware belakangan saya semakin sering menemukan masalah ketika habis melakukan upgrade system. </p>
+<h4>Instalasi</h4>
+<p>Untuk menginstall KVM dan paket yang didukungnya di Debian SID maka kita lakukan dengan cara berikut:</p>
+<div class="highlight"><pre><span></span>$ sudo aptitude install qemu-kvm libvirt-daemon-system libvirt-clients libvirt-dev 
+</pre></div>
+
+
+<p>Secara <em>default</em> KVM hanya mengijinkan <code>root</code> atau <code>superuser</code> yang dapat menjalankan dan mengadministrasi <em>virtual machine</em>, untuk dapat menjalankan dan mengatur virtual machine pada kvm dengan user biasa maka tambahakan user yang kita gunakan <em>groups</em> <code>libvirt</code> dan <code>kvm</code>.</p>
+<div class="highlight"><pre><span></span><span class="err">$</span> <span class="n">sudo</span> <span class="n">usesmod</span> <span class="o">-</span><span class="n">aG</span> <span class="n">kvm</span> <span class="n">user</span>
+<span class="err">$</span> <span class="n">sudo</span> <span class="n">usermod</span> <span class="o">-</span><span class="n">aG</span> <span class="n">libvirt</span> <span class="n">user</span>
+</pre></div>
+
+
+<p>Untuk manajemen dan administrasi kvm memiliki beberapa opsi, untuk cli di terminal dengan menggunakan <code>virsh</code> atau <code>virtinst / virt install</code>, sedangkan untuk <em>graphical tools</em> kita bisa menggunakan <code>virt manager</code>.</p>
+<p>Untuk menginstall virt manager ataupun gnome boxes di Debian SID kita cukup menginstallnya sama seperti package lainnya dengan dengan menggunakan <code>apt</code>.</p>
+<div class="highlight"><pre><span></span><span class="err">$</span> <span class="n">sudo</span> <span class="n">apt</span> <span class="n">install</span> <span class="n">virt</span><span class="o">-</span><span class="n">manager</span>
+</pre></div>
+
+
+<p>Selain untuk manajemen <code>KVM</code> virt-manager juga dapat digunakan untuk manajemen kontainer seperti <code>LXC</code> atau <em>hypervisor</em> lain seperti <code>XEN</code> 
+Untuk membuat <em>VM</em> baru di <code>virt-manager</code> mudah, semua logo cukup jelas sebagai petunjuk.
+<a target="_blank" href="../images/virtmanager2.png"><img src="../images/virtmanager2.png" alt="virtmanager" style=";width:350px;height:358px;"></a> </br> 
+Gambar diatas menunjukan pembuatan <em>VM</em> baru, dengan beberapa opsi seperti lokasi install media atau impor dari yang sudah ada, arsitektur untuk memilih arsitektur CPU. </p>
+<p>Lanjut ke langkah selanjutnya akan ada opsi pilihan sumber instalasi dan lokasi tempat <em>virtual disk</em>, default opsi akan mengarah ke <code>/var/lib/libvirt/images</code> yang dapat diubah dengan menambahkan pool baru. </p>
+<p>Untuk opsi <em>virtul disk format</em> yang didukung sendiri virt-manager support qcow2(default), vmware disk <code>vmdk</code>, virtualbox <code>vdi</code>, raw image, <code>vpc</code>, qcow, cow, cloop, vhdx, dll.</p>
+<p>Untuk networking secara default hanya ada opsi <code>NAT</code> dan <code>macvtap</code>. Jika ingin menggunakan <code>bridge</code> pada virt-manager maka kita bisa menginstall <code>bridge-utils</code>.</p>
+<p>Untuk opsi BIOS virt-manager mendukung <code>legacy bios</code> dan <code>UEFI</code>.
+<code>Virt-Manager</code> juga mtelah mendukung <em>live snapshoot</em>.</p>
+<p><a target="_blank" href="../images/virtmanager3.png"><img src="../images/virtmanager3.png" alt="virtmanager menjalankan guest win server" style=";width:350px;height:358px;"></a> </br> </p>
+<p>Selain opsi diatas <code>virt-manager</code> juga masih memiliki banyak opsi lain untuk optimalisasi untuk pengalaman virtualisasi yang lebih nyaman.</p>
+<p>Sekian </p></section>
         <hr class="uk-article-divider">
     </article>
 
@@ -138,8 +165,8 @@ Summary: Instalasi qemu/kvm di debian linux, virtualisasi dengan linux kvm</p>
                 <ul class="uk-nav uk-nav-side">
                     <li class="uk-nav-header">Categories</li>
                     <li ><a href="https://andyzs.net/category/freebsd.html">FreeBSD</a></li>
+                    <li class="uk-active"><a href="https://andyzs.net/category/gnulinux.html">GNU/Linux</a></li>
                     <li ><a href="https://andyzs.net/category/misc.html">Misc</a></li>
-                    <li class="uk-active"><a href="https://andyzs.net/category/virtualisasi.html">Virtualisasi</a></li>
                     <li class="uk-nav-header">Pages</li>
 
                     <li >
@@ -223,8 +250,8 @@ Summary: Instalasi qemu/kvm di debian linux, virtualisasi dengan linux kvm</p>
         <ul class="uk-nav uk-nav-offcanvas" data-uk-nav>
             <li class="uk-nav-header">Categories</li>
             <li ><a href="https://andyzs.net/category/freebsd.html">FreeBSD</a></li>
+            <li class="uk-active"><a href="https://andyzs.net/category/gnulinux.html">GNU/Linux</a></li>
             <li ><a href="https://andyzs.net/category/misc.html">Misc</a></li>
-            <li class="uk-active"><a href="https://andyzs.net/category/virtualisasi.html">Virtualisasi</a></li>
             <li class="uk-nav-header">Pages</li>
             <li >
                 <a href="https://andyzs.net/pages/tentang/">Tentang</a>

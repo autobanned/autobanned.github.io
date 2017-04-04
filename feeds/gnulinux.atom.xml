@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom"><title>an unfinished blogs - GNU/Linux</title><link href="https://andyzs.net/" rel="alternate"></link><link href="SITEURL/feeds/gnulinux.atom.xml" rel="self"></link><id>https://andyzs.net/</id><updated>2017-04-01T19:30:00+07:00</updated><entry><title>Virtualisasi dengan KVM dan VirtManager di Debian SID GNU/Linux</title><link href="https://andyzs.net/install-kvm-virt-manager-debian-linux.html" rel="alternate"></link><published>2017-03-31T20:05:00+07:00</published><updated>2017-04-01T19:30:00+07:00</updated><author><name>andy</name></author><id>tag:andyzs.net,2017-03-31:/install-kvm-virt-manager-debian-linux.html</id><summary type="html">&lt;p&gt;Instalasi qemu/kvm di debian linux, virtualisasi dengan linux kvm&lt;/p&gt;</summary><content type="html">&lt;p&gt;KVM adalah singkatan dari &lt;em&gt;Kernel-based Virtual Machine&lt;/em&gt;, merupakan salah satu arsitektur virtualisasi bersumber terbuka (&lt;em&gt;Open source&lt;/em&gt;) yang ditanamkan kedalam linux kernel. KVM merupakan virtualisasi penuh yang memanfaatkan extensi virtualisasi pada prosesor X86. Untuk menjalankan module KVM pada distribusi linux kita cukup mengenable extensi virtualisasi dari &lt;code&gt;BIOS&lt;/code&gt; dan meload kernel modulenya &lt;code&gt;kvm.ko&lt;/code&gt; atau jika kita hanya ingin module spesifik dengan vendor hardware yang kita gunakan yang di &lt;em&gt;load&lt;/em&gt; maka untuk intel &lt;code&gt;kvm-intel.ko&lt;/code&gt; dan untuk AMD &lt;code&gt;kvm-amd.ko&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;Alasan saya sendiri lebih memilih qemu/kvm dibanding &lt;code&gt;virtualbox&lt;/code&gt; atau &lt;code&gt;vmware&lt;/code&gt; adalah selain open source, di virtualbox dan vmware belakangan saya semakin sering menemukan masalah ketika habis melakukan upgrade system. &lt;/p&gt;
+&lt;h4&gt;Instalasi&lt;/h4&gt;
+&lt;p&gt;Untuk menginstall KVM dan paket yang didukungnya di Debian SID maka kita lakukan dengan cara berikut:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;$ sudo aptitude install qemu-kvm libvirt-daemon-system libvirt-clients libvirt-dev 
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Secara &lt;em&gt;default&lt;/em&gt; KVM hanya mengijinkan &lt;code&gt;root&lt;/code&gt; atau &lt;code&gt;superuser&lt;/code&gt; yang dapat menjalankan dan mengadministrasi &lt;em&gt;virtual machine&lt;/em&gt;, untuk dapat menjalankan dan mengatur virtual machine pada kvm dengan user biasa maka tambahakan user yang kita gunakan &lt;em&gt;groups&lt;/em&gt; &lt;code&gt;libvirt&lt;/code&gt; dan &lt;code&gt;kvm&lt;/code&gt;.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="err"&gt;$&lt;/span&gt; &lt;span class="n"&gt;sudo&lt;/span&gt; &lt;span class="n"&gt;usesmod&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;aG&lt;/span&gt; &lt;span class="n"&gt;kvm&lt;/span&gt; &lt;span class="n"&gt;user&lt;/span&gt;
+&lt;span class="err"&gt;$&lt;/span&gt; &lt;span class="n"&gt;sudo&lt;/span&gt; &lt;span class="n"&gt;usermod&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;aG&lt;/span&gt; &lt;span class="n"&gt;libvirt&lt;/span&gt; &lt;span class="n"&gt;user&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Untuk manajemen dan administrasi kvm memiliki beberapa opsi, untuk cli di terminal dengan menggunakan &lt;code&gt;virsh&lt;/code&gt; atau &lt;code&gt;virtinst / virt install&lt;/code&gt;, sedangkan untuk &lt;em&gt;graphical tools&lt;/em&gt; kita bisa menggunakan &lt;code&gt;virt manager&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;Untuk menginstall virt manager ataupun gnome boxes di Debian SID kita cukup menginstallnya sama seperti package lainnya dengan dengan menggunakan &lt;code&gt;apt&lt;/code&gt;.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="err"&gt;$&lt;/span&gt; &lt;span class="n"&gt;sudo&lt;/span&gt; &lt;span class="n"&gt;apt&lt;/span&gt; &lt;span class="n"&gt;install&lt;/span&gt; &lt;span class="n"&gt;virt&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;manager&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Selain untuk manajemen &lt;code&gt;KVM&lt;/code&gt; virt-manager juga dapat digunakan untuk manajemen kontainer seperti &lt;code&gt;LXC&lt;/code&gt; atau &lt;em&gt;hypervisor&lt;/em&gt; lain seperti &lt;code&gt;XEN&lt;/code&gt; 
+Untuk membuat &lt;em&gt;VM&lt;/em&gt; baru di &lt;code&gt;virt-manager&lt;/code&gt; mudah, semua logo cukup jelas sebagai petunjuk.
+&lt;a target="_blank" href="../images/virtmanager2.png"&gt;&lt;img src="../images/virtmanager2.png" alt="virtmanager" style=";width:350px;height:358px;"&gt;&lt;/a&gt; &lt;/br&gt; 
+Gambar diatas menunjukan pembuatan &lt;em&gt;VM&lt;/em&gt; baru, dengan beberapa opsi seperti lokasi install media atau impor dari yang sudah ada, arsitektur untuk memilih arsitektur CPU. &lt;/p&gt;
+&lt;p&gt;Lanjut ke langkah selanjutnya akan ada opsi pilihan sumber instalasi dan lokasi tempat &lt;em&gt;virtual disk&lt;/em&gt;, default opsi akan mengarah ke &lt;code&gt;/var/lib/libvirt/images&lt;/code&gt; yang dapat diubah dengan menambahkan pool baru. &lt;/p&gt;
+&lt;p&gt;Untuk opsi &lt;em&gt;virtul disk format&lt;/em&gt; yang didukung sendiri virt-manager support qcow2(default), vmware disk &lt;code&gt;vmdk&lt;/code&gt;, virtualbox &lt;code&gt;vdi&lt;/code&gt;, raw image, &lt;code&gt;vpc&lt;/code&gt;, qcow, cow, cloop, vhdx, dll.&lt;/p&gt;
+&lt;p&gt;Untuk networking secara default hanya ada opsi &lt;code&gt;NAT&lt;/code&gt; dan &lt;code&gt;macvtap&lt;/code&gt;. Jika ingin menggunakan &lt;code&gt;bridge&lt;/code&gt; pada virt-manager maka kita bisa menginstall &lt;code&gt;bridge-utils&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;Untuk opsi BIOS virt-manager mendukung &lt;code&gt;legacy bios&lt;/code&gt; dan &lt;code&gt;UEFI&lt;/code&gt;.
+&lt;code&gt;Virt-Manager&lt;/code&gt; juga mtelah mendukung &lt;em&gt;live snapshoot&lt;/em&gt;.&lt;/p&gt;
+&lt;p&gt;&lt;a target="_blank" href="../images/virtmanager3.png"&gt;&lt;img src="../images/virtmanager3.png" alt="virtmanager menjalankan guest win server" style=";width:350px;height:358px;"&gt;&lt;/a&gt; &lt;/br&gt; &lt;/p&gt;
+&lt;p&gt;Selain opsi diatas &lt;code&gt;virt-manager&lt;/code&gt; juga masih memiliki banyak opsi lain untuk optimalisasi untuk pengalaman virtualisasi yang lebih nyaman.&lt;/p&gt;
+&lt;p&gt;Sekian &lt;/p&gt;</content><category term="virtualisasi"></category><category term="debian"></category><category term="GNU/Linux"></category><category term="virtual mesin"></category><category term="vm"></category></entry></feed>

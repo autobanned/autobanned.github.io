@@ -66,124 +66,56 @@
 
 
             <article class="uk-article" itemtype="http://schema.org/BlogPosting" itemscope="itemscope" itemprop="blogPost">
+                <a href="https://andyzs.net/install-kvm-virt-manager-debian-linux.html" class="uk-article-title uk-link-muted" itemprop="name">Virtualisasi dengan KVM dan VirtManager di Debian SID GNU/Linux</a>
+                <p class="uk-article-meta"><time datetime="2017-03-31" itemprop="datePublished">Fri 31 March 2017</time> • <a href="https://andyzs.net/category/gnulinux.html">GNU/Linux</a> • <br class="uk-visible-small"><i class="uk-icon-comment"></i> <a href="https://andyzs.net/install-kvm-virt-manager-debian-linux.html#disqus_thread" itemprop="discussionUrl"></a></p>
+</p>
+                <p class="uk-article-lead" itemprop="description">Instalasi qemu/kvm di debian linux, virtualisasi dengan linux kvm</p>
+                <section itemprop="articleBody"><p>KVM adalah singkatan dari <em>Kernel-based Virtual Machine</em>, merupakan salah satu arsitektur virtualisasi bersumber terbuka (<em>Open source</em>) yang ditanamkan kedalam linux kernel. KVM merupakan virtualisasi penuh yang memanfaatkan extensi virtualisasi pada prosesor X86. Untuk menjalankan module KVM pada distribusi linux kita cukup mengenable extensi virtualisasi dari <code>BIOS</code> dan meload kernel modulenya <code>kvm.ko</code> atau jika kita hanya ingin module spesifik dengan vendor hardware yang kita gunakan yang di <em>load</em> maka untuk intel <code>kvm-intel.ko</code> dan untuk AMD <code>kvm-amd.ko</code>.</p>
+<p>Alasan saya sendiri lebih memilih qemu/kvm dibanding <code>virtualbox</code> atau <code>vmware</code> adalah selain open source, di virtualbox dan vmware belakangan saya semakin sering menemukan masalah ketika habis melakukan upgrade system. </p>
+<h4>Instalasi</h4>
+<p>Untuk menginstall KVM dan paket yang didukungnya di Debian SID maka kita lakukan dengan cara berikut:</p>
+<div class="highlight"><pre><span></span>$ sudo aptitude install qemu-kvm libvirt-daemon-system libvirt-clients libvirt-dev 
+</pre></div>
+
+
+<p>Secara <em>default</em> KVM hanya mengijinkan <code>root</code> atau <code>superuser</code> yang dapat menjalankan dan mengadministrasi <em>virtual machine</em>, untuk dapat menjalankan dan mengatur virtual machine pada kvm dengan user biasa maka tambahakan user yang kita gunakan <em>groups</em> <code>libvirt</code> dan <code>kvm</code>.</p>
+<div class="highlight"><pre><span></span><span class="err">$</span> <span class="n">sudo</span> <span class="n">usesmod</span> <span class="o">-</span><span class="n">aG</span> <span class="n">kvm</span> <span class="n">user</span>
+<span class="err">$</span> <span class="n">sudo</span> <span class="n">usermod</span> <span class="o">-</span><span class="n">aG</span> <span class="n">libvirt</span> <span class="n">user</span>
+</pre></div>
+
+
+<p>Untuk manajemen dan administrasi kvm memiliki beberapa opsi, untuk cli di terminal dengan menggunakan <code>virsh</code> atau <code>virtinst / virt install</code>, sedangkan untuk <em>graphical tools</em> kita bisa menggunakan <code>virt manager</code>.</p>
+<p>Untuk menginstall virt manager ataupun gnome boxes di Debian SID kita cukup menginstallnya sama seperti package lainnya dengan dengan menggunakan <code>apt</code>.</p>
+<div class="highlight"><pre><span></span><span class="err">$</span> <span class="n">sudo</span> <span class="n">apt</span> <span class="n">install</span> <span class="n">virt</span><span class="o">-</span><span class="n">manager</span>
+</pre></div>
+
+
+<p>Selain untuk manajemen <code>KVM</code> virt-manager juga dapat digunakan untuk manajemen kontainer seperti <code>LXC</code> atau <em>hypervisor</em> lain seperti <code>XEN</code> 
+Untuk membuat <em>VM</em> baru di <code>virt-manager</code> mudah, semua logo cukup jelas sebagai petunjuk.
+<a target="_blank" href="../images/virtmanager2.png"><img src="../images/virtmanager2.png" alt="virtmanager" style=";width:350px;height:358px;"></a> </br> 
+Gambar diatas menunjukan pembuatan <em>VM</em> baru, dengan beberapa opsi seperti lokasi install media atau impor dari yang sudah ada, arsitektur untuk memilih arsitektur CPU. </p>
+<p>Lanjut ke langkah selanjutnya akan ada opsi pilihan sumber instalasi dan lokasi tempat <em>virtual disk</em>, default opsi akan mengarah ke <code>/var/lib/libvirt/images</code> yang dapat diubah dengan menambahkan pool baru. </p>
+<p>Untuk opsi <em>virtul disk format</em> yang didukung sendiri virt-manager support qcow2(default), vmware disk <code>vmdk</code>, virtualbox <code>vdi</code>, raw image, <code>vpc</code>, qcow, cow, cloop, vhdx, dll.</p>
+<p>Untuk networking secara default hanya ada opsi <code>NAT</code> dan <code>macvtap</code>. Jika ingin menggunakan <code>bridge</code> pada virt-manager maka kita bisa menginstall <code>bridge-utils</code>.</p>
+<p>Untuk opsi BIOS virt-manager mendukung <code>legacy bios</code> dan <code>UEFI</code>.
+<code>Virt-Manager</code> juga mtelah mendukung <em>live snapshoot</em>.</p>
+<p><a target="_blank" href="../images/virtmanager3.png"><img src="../images/virtmanager3.png" alt="virtmanager menjalankan guest win server" style=";width:350px;height:358px;"></a> </br> </p>
+<p>Selain opsi diatas <code>virt-manager</code> juga masih memiliki banyak opsi lain untuk optimalisasi untuk pengalaman virtualisasi yang lebih nyaman.</p>
+<p>Sekian </p></section>
+                <a href="https://andyzs.net/install-kvm-virt-manager-debian-linux.html#disqus_thread"></a>
+                <hr class="uk-article-divider">
+            </article>
+
+
+        <article class="uk-article" itemtype="http://schema.org/BlogPosting" itemscope="itemscope" itemprop="blogPost">
                 <a href="https://andyzs.net/blogging-dengan-static-gen.html" class="uk-article-title uk-link-muted" itemprop="name">Blogging dengan pelican dan github pages</a>
                 <p class="uk-article-meta"><time datetime="2017-03-30" itemprop="datePublished">Thu 30 March 2017</time> • <a href="https://andyzs.net/category/misc.html">Misc</a> • <br class="uk-visible-small"><i class="uk-icon-comment"></i> <a href="https://andyzs.net/blogging-dengan-static-gen.html#disqus_thread" itemprop="discussionUrl"></a></p>
 </p>
                 <p class="uk-article-lead" itemprop="description">Blogging hemat ala geek dengan static gen</p>
-                <section itemprop="articleBody"><p>Static website generator alias staticgen semakin hari semakin ramai digunakan sebagai blogging platform,  teman-teman saya di grup telegram pegelinux pun kebanyakan blogging menggunakan staticgen ini sebagai blog enginenya, alasan dan platform yang digunakan berbeda-beda demikian juga tempat hostingnya. Ada yang menghostingnya di di github pages, gitlab pages ada pula yang menghostingnya di vps sendiri. Saya sendiri memilih pelican dan untuk tempat hostingnya adalah github pages. Alasan saya sendiri menggunakan pelican di github pages adalah untuk hemat dan belajar. </p>
-<p>Pelican adalah static site generator yang dibuat menggunakan <a href="https://www.python.org/">python</a> yang support <strong>markdwon</strong> dan <strong>reStructuredText</strong> untuk penulisannya, sedangkan untuk pembuatan themanya menggunakan <a href="jinja.pocoo.org">jinja2</a> template.</p>
-<p><code>Pelican</code> dapat berjalan di python 2 maupun 3. Untuk menginstall <code>pelican</code> dapat diinstall dengan beberapa cara, paling mudah adalah dengan menggunakan <code>manajer pemaketan</code> atau  <em>package manager</em> di distribusi linux, atau menggunakan <code>python-pip</code>.</p>
-<p>Disini saya menggunakan arch-linux, untuk mengisntall <code>pelican</code> menggunakan <code>package manager</code> maka kita dapat dengan mudah menginstallnya melalui <code>pacman</code> seperti menginstall package lainnya.
-Untuk menginstall pelican dan markdown di arch cukup melakukan seperti ini:</p>
-<div class="highlight"><pre><span></span><span class="cp"># pacman -S pelican python-markdown</span>
-</pre></div>
-
-
-<p>atau jika kita mau mendapatkan paket yang bleeding-edge dari git maka kita bisa menginstall melalui <code>AUR</code></p>
-<div class="highlight"><pre><span></span><span class="err">$</span> <span class="n">yaourt</span> <span class="o">-</span><span class="n">S</span> <span class="n">pelican</span><span class="o">-</span><span class="n">git</span>
-</pre></div>
-
-
-<p>Untuk menginstall dengan <code>python-pip</code> maka lakukan cara berikut:</p>
-<div class="highlight"><pre><span></span><span class="n">pip</span> <span class="n">install</span> <span class="n">pelican</span> <span class="n">markdown</span>
-</pre></div>
-
-
-<p>Selain cara diatas <code>pelican</code> juga dapat diinstall secara local menggunakan <code>pip</code> didalam <code>virtualenv</code>:</p>
-<div class="highlight"><pre><span></span><span class="err">$</span> <span class="n">virtualenv</span> <span class="o">~/</span><span class="n">direktori</span><span class="o">/</span><span class="n">pelican</span>
-<span class="err">$</span> <span class="n">cd</span> <span class="o">~/</span><span class="n">direktori</span><span class="o">/</span><span class="n">pelican</span>
-<span class="n">source</span> <span class="n">bin</span><span class="o">/</span><span class="n">activate</span>
-<span class="n">pip</span> <span class="n">install</span> <span class="n">pelican</span> <span class="n">markdown</span>
-</pre></div>
-
-
-<p>Setelah semua paket terinstall maka kita dapat dengan mudah memulai membuat proyek <code>pelican</code> dengan menjalankan perintah <code>pelican-quickstart</code> yang kemudian kita akan dilanjutkan dengan beberapa pertanyaan seperti direktori tempat mengintsallnya, author dan lain-lain seperti berikut ini:</p>
-<div class="highlight"><pre><span></span><span class="o">/</span><span class="nt">home</span><span class="o">/</span><span class="nt">user</span><span class="o">/</span><span class="nt">pelican</span><span class="o">$</span> <span class="nt">pelican-quickstart</span>
-<span class="nt">Where</span> <span class="nt">do</span> <span class="nt">you</span> <span class="nt">want</span> <span class="nt">to</span> <span class="nt">create</span> <span class="nt">your</span> <span class="nt">new</span> <span class="nt">web</span> <span class="nt">site</span><span class="o">?</span> <span class="o">[.]</span>
-<span class="nt">What</span> <span class="nt">will</span> <span class="nt">be</span> <span class="nt">the</span> <span class="nt">title</span> <span class="nt">of</span> <span class="nt">this</span> <span class="nt">web</span> <span class="nt">site</span><span class="o">?</span>
-<span class="o">&gt;</span> <span class="nt">pelican</span> <span class="nt">blogs</span>
-<span class="nt">Who</span> <span class="nt">will</span> <span class="nt">be</span> <span class="nt">the</span> <span class="nt">author</span> <span class="nt">of</span> <span class="nt">this</span> <span class="nt">web</span> <span class="nt">site</span><span class="o">?</span>
-<span class="o">&gt;</span> <span class="nt">andy</span>
-<span class="nt">What</span> <span class="nt">will</span> <span class="nt">be</span> <span class="nt">the</span> <span class="nt">default</span> <span class="nt">language</span> <span class="nt">of</span> <span class="nt">this</span> <span class="nt">web</span> <span class="nt">site</span><span class="o">?</span> <span class="o">[</span><span class="nt">en</span><span class="o">]</span>
-<span class="nt">Do</span> <span class="nt">you</span> <span class="nt">want</span> <span class="nt">to</span> <span class="nt">specify</span> <span class="nt">a</span> <span class="nt">URL</span> <span class="nt">prefix</span><span class="o">?</span> <span class="nt">e</span><span class="p">.</span><span class="nc">g</span><span class="o">.,</span> <span class="nt">http</span><span class="o">://</span><span class="nt">example</span><span class="p">.</span><span class="nc">com</span>   <span class="o">(</span><span class="nt">Y</span><span class="o">/</span><span class="nt">n</span><span class="o">)</span>
-<span class="o">&gt;</span> <span class="nt">Y</span>
-<span class="nt">What</span> <span class="nt">is</span> <span class="nt">your</span> <span class="nt">URL</span> <span class="nt">prefix</span><span class="o">?</span> <span class="o">(</span><span class="nt">see</span> <span class="nt">above</span> <span class="nt">example</span><span class="o">;</span> <span class="nt">no</span> <span class="nt">trailing</span> <span class="nt">slash</span><span class="o">)</span>
-<span class="o">&gt;</span> <span class="nt">http</span><span class="o">://</span><span class="nt">andyzs</span><span class="p">.</span><span class="nc">github</span><span class="p">.</span><span class="nc">io</span>
-<span class="nt">Do</span> <span class="nt">you</span> <span class="nt">want</span> <span class="nt">to</span> <span class="nt">enable</span> <span class="nt">article</span> <span class="nt">pagination</span><span class="o">?</span> <span class="o">(</span><span class="nt">Y</span><span class="o">/</span><span class="nt">n</span><span class="o">)</span>
-<span class="o">&gt;</span> <span class="nt">y</span>
-<span class="nt">How</span> <span class="nt">many</span> <span class="nt">articles</span> <span class="nt">per</span> <span class="nt">page</span> <span class="nt">do</span> <span class="nt">you</span> <span class="nt">want</span><span class="o">?</span> <span class="o">[</span><span class="nt">10</span><span class="o">]</span>
-<span class="nt">Do</span> <span class="nt">you</span> <span class="nt">want</span> <span class="nt">to</span> <span class="nt">generate</span> <span class="nt">a</span> <span class="nt">Fabfile</span><span class="o">/</span><span class="nt">Makefile</span> <span class="nt">to</span> <span class="nt">automate</span> <span class="nt">generation</span> <span class="nt">and</span> <span class="nt">publishing</span><span class="o">?</span> <span class="o">(</span><span class="nt">Y</span><span class="o">/</span><span class="nt">n</span><span class="o">)</span>
-<span class="o">&gt;</span> <span class="nt">y</span>
-<span class="nt">Do</span> <span class="nt">you</span> <span class="nt">want</span> <span class="nt">an</span> <span class="nt">auto-reload</span> <span class="o">&amp;</span> <span class="nt">simpleHTTP</span> <span class="nt">script</span> <span class="nt">to</span> <span class="nt">assist</span> <span class="nt">with</span> <span class="nt">theme</span> <span class="nt">and</span> <span class="nt">site</span> <span class="nt">development</span><span class="o">?</span> <span class="o">(</span><span class="nt">Y</span><span class="o">/</span><span class="nt">n</span><span class="o">)</span>
-<span class="o">&gt;</span> <span class="nt">y</span>
-<span class="nt">Do</span> <span class="nt">you</span> <span class="nt">want</span> <span class="nt">to</span> <span class="nt">upload</span> <span class="nt">your</span> <span class="nt">website</span> <span class="nt">using</span> <span class="nt">FTP</span><span class="o">?</span> <span class="o">(</span><span class="nt">y</span><span class="o">/</span><span class="nt">N</span><span class="o">)</span>
-<span class="o">&gt;</span> <span class="nt">n</span>
-<span class="nt">Do</span> <span class="nt">you</span> <span class="nt">want</span> <span class="nt">to</span> <span class="nt">upload</span> <span class="nt">your</span> <span class="nt">website</span> <span class="nt">using</span> <span class="nt">SSH</span><span class="o">?</span> <span class="o">(</span><span class="nt">y</span><span class="o">/</span><span class="nt">N</span><span class="o">)</span>
-<span class="o">&gt;</span> <span class="nt">n</span>
-<span class="nt">Do</span> <span class="nt">you</span> <span class="nt">want</span> <span class="nt">to</span> <span class="nt">upload</span> <span class="nt">your</span> <span class="nt">website</span> <span class="nt">using</span> <span class="nt">Dropbox</span><span class="o">?</span> <span class="o">(</span><span class="nt">y</span><span class="o">/</span><span class="nt">N</span><span class="o">)</span>
-<span class="o">&gt;</span> <span class="nt">n</span>
-<span class="nt">Do</span> <span class="nt">you</span> <span class="nt">want</span> <span class="nt">to</span> <span class="nt">upload</span> <span class="nt">your</span> <span class="nt">website</span> <span class="nt">using</span> <span class="nt">S3</span><span class="o">?</span> <span class="o">(</span><span class="nt">y</span><span class="o">/</span><span class="nt">N</span><span class="o">)</span>
-<span class="o">&gt;</span> <span class="nt">n</span>
-<span class="nt">Do</span> <span class="nt">you</span> <span class="nt">want</span> <span class="nt">to</span> <span class="nt">upload</span> <span class="nt">your</span> <span class="nt">website</span> <span class="nt">using</span> <span class="nt">Rackspace</span> <span class="nt">Cloud</span> <span class="nt">Files</span><span class="o">?</span> <span class="o">(</span><span class="nt">y</span><span class="o">/</span><span class="nt">N</span><span class="o">)</span>
-<span class="o">&gt;</span> <span class="nt">n</span>
-</pre></div>
-
-
-<p>Setelah semua pertanyaan diatas selesai terjawab maka proyek <code>pelican</code> kita siap diisi konten, jika kita menjalankan perintah <code>tree</code> didalam direktori proyek pelican kita, maka kita akan melihat ini :</p>
-<div class="highlight"><pre><span></span><span class="o">$</span> <span class="nt">tree</span>
-<span class="err">├──</span> <span class="nt">Makefile</span>
-<span class="err">├──</span> <span class="nt">content</span>
-<span class="err">├──</span> <span class="nt">develop_server</span><span class="p">.</span><span class="nc">sh</span>
-<span class="err">├──</span> <span class="nt">fabfile</span><span class="p">.</span><span class="nc">py</span>
-<span class="err">├──</span> <span class="nt">output</span>
-<span class="err">├──</span> <span class="nt">pelicanconf</span><span class="p">.</span><span class="nc">py</span>
-<span class="err">└──</span> <span class="nt">publishconf</span><span class="p">.</span><span class="nc">py</span>
-</pre></div>
-
-
-<p>Penjelasan singkat :
-* content: direktori tempat artikel berformat <code>markdown</code> atau <code>reStructuredText</code> ditulis, untuk membuat halaman seperti tentang, privasi dan lain-lain ataupun direktori tempat menyimpan image dapat dibuat dengan membuat direktori baru didalam direktori konten ini. 
-Contoh </p>
-<div class="highlight"><pre><span></span><span class="err">$</span> <span class="n">mkdir</span> <span class="n">content</span><span class="o">/</span><span class="n">pages</span>
-<span class="err">$</span> <span class="n">mkdir</span> <span class="n">content</span><span class="o">/</span><span class="n">images</span>
-</pre></div>
-
-
-<ul>
-<li>output adalah direktori tempat pelican meletakan file yang di konversi dari markdown format kebentuk HTML secara <em>default</em></li>
-<li><code>pelicanconf.py</code> file konfigurasi pelican di file ini sebagian besar setting di letakan seperti THEME, PATH, TIMEZONE dll</li>
-<li><code>publishconf.py</code> file konfigurasi untuk publikasi, didalamnya terdapat line 
-<code>from pelicanconf import *</code> yang berarti file ini akan mengimpor settingan dari <code>pelicanconf.py</code> juga, settingan yang tidak perlu untuk <em>development</em> seperti analytics dan comment system seperti disqus diletakan di file ini.</li>
-<li><code>Makefile</code> seperti file <code>makefile</code> pada umumnya, berisi perintah dan deklarasi yang dapat di lakukan dengan <code>make</code> <em>command</em>.</li>
-<li>develop_server.sh adalah script untuk menjalankan <em>built-in</em> server untuk lokal <em>development</em>.</li>
-</ul>
-<p>Buatlah postingan pertama kita dan save dalam format <code>.mkd</code>, <code>.md</code> atau <code>.rst</code> didalam direktori <code>content</code>, setelah selesai maka jalankan perintah:
-<code>$ make html</code>:
-Untuk mengecek hasil blog pelican kita sebelum di publish ke <code>Github Pages</code> maka kita bisa menjalankan
-<code>$ make devserver</code></p>
-<p>Setelah kita merasa blog sudah siap untuk di publikasikan maka <a href="https://pages.github.com/">buatlah github pages</a> 
-selanjutnya ubah settingan di <code>publishconf.py</code>:
-dari 
-<code>DELETE_OUTPUT_DIRECTORY = True</code>
-menjadi
-<code>DELETE_OUTPUT_DIRECTORY = False</code></p>
-<p>Setelah itu jalankan perintah <code>make publish</code>, selanjutnya untuk mempublish blog kita ke github pages maka lakukan seperti berikut:</p>
-<div class="highlight"><pre><span></span><span class="err">$</span> <span class="n">cd</span> <span class="n">output</span>
-<span class="err">$</span> <span class="n">git</span> <span class="n">init</span>
-<span class="err">$</span> <span class="n">git</span> <span class="n">remote</span> <span class="n">add</span> <span class="n">origin</span> <span class="nl">https</span><span class="p">:</span><span class="c1">//github.com/username/username.github.io.git</span>
-<span class="err">$</span> <span class="n">git</span> <span class="n">add</span> <span class="o">--</span><span class="n">all</span>
-<span class="err">$</span> <span class="n">git</span> <span class="n">commit</span> <span class="o">-</span><span class="n">m</span> <span class="s">&quot;commit message&quot;</span>
-<span class="err">$</span> <span class="n">git</span> <span class="n">push</span> <span class="n">origin</span> <span class="n">master</span>
-</pre></div>
-
-
-<p>Yup dengan demikian blog pelican kita sudah terhosting di github pages dan bisa diakses, untuk custom domain, custom 404 make bisa membaca referensi disini:
-https://help.github.com/articles/using-a-custom-domain-with-github-pages/
-https://www.google.com/search?q=github+custom+404&amp;ie=utf-8&amp;oe=utf-8</p>
-<p>Segitu dulu deh postingannya kali ini 😅😅😅</p></section>
-                <a href="https://andyzs.net/blogging-dengan-static-gen.html#disqus_thread"></a>
+                <p>Static website generator alias staticgen semakin hari semakin ramai digunakan sebagai blogging platform, teman-teman saya di grup telegram pegelinux pun kebanyakan blogging menggunakan staticgen ini sebagai blog enginenya, alasan dan platform yang digunakan berbeda-beda demikian juga tempat hostingnya. Ada yang menghostingnya di di github pages, gitlab pages ada pula yang menghostingnya di vps sendiri. Saya sendiri memilih pelican dan untuk tempat hostingnya adalah github pages. Alasan saya sendiri menggunakan pelican di github pages adalah...</p>
+                <a href="https://andyzs.net/blogging-dengan-static-gen.html">Read More</a>
                 <hr class="uk-article-divider">
-            </article>
+        </article>
 
 
         <article class="uk-article" itemtype="http://schema.org/BlogPosting" itemscope="itemscope" itemprop="blogPost">
@@ -204,17 +136,6 @@ https://www.google.com/search?q=github+custom+404&amp;ie=utf-8&amp;oe=utf-8</p>
                 <p class="uk-article-lead" itemprop="description">cara berchat dengan multi akun di telegram desktop</p>
                 <p>Telegram merupakan aplikasi perpesanan instan yang cukup populer digunakan. Keunggulan Telegram terletak pada chat berbasis awan (cloud-based). Dengan demikian, kita dapat merasakan Telegram dapat digunakan banyak perangkat (multi-device) tanpa kehilangan chat. Karena chat tersinkronisasi dari Telegram client ke server. Sebagian dari kita mungkin ada yang butuh menggunakan banyak akun Telegram. Alasanya beragam, entah itu untuk memisahkan akun khusus bisnis atau kantor dengan akun personal. Atau hanya sekadar ingin membuat untuk dimasukan dalam grup / channel, dan...</p>
                 <a href="https://andyzs.net/menjalankan multi akun dengan telegram desktop.html">Read More</a>
-                <hr class="uk-article-divider">
-        </article>
-
-
-        <article class="uk-article" itemtype="http://schema.org/BlogPosting" itemscope="itemscope" itemprop="blogPost">
-                <a href="https://andyzs.net/virtualisasi-dengan-kvm-di-debian-sid-gnulinux.html" class="uk-article-title uk-link-muted" itemprop="name">Virtualisasi dengan KVM di Debian SID GNU/Linux</a>
-                <p class="uk-article-meta"><time datetime="2017-01-30" itemprop="datePublished">Mon 30 January 2017</time> • <a href="https://andyzs.net/category/virtualisasi.html">Virtualisasi</a> • <br class="uk-visible-small"><i class="uk-icon-comment"></i> <a href="https://andyzs.net/virtualisasi-dengan-kvm-di-debian-sid-gnulinux.html#disqus_thread" itemprop="discussionUrl"></a></p>
-</p>
-                <p class="uk-article-lead" itemprop="description">Status : hidden Slug: install-kvm-debian-linux Authors: andy Summary: Instalasi qemu/kvm di debian linux, virtualisasi dengan linux kvm KVM adalah singkatan dari Kernel-based Virtual Machine, merupakan salah satu arsitektur virtualisasi bersumber terbuka (Open source) yang ditanamkan kedalam linux kernel.</p>
-                <p>Status : hidden Slug: install-kvm-debian-linux Authors: andy Summary: Instalasi qemu/kvm di debian linux, virtualisasi dengan linux kvm KVM adalah singkatan dari Kernel-based Virtual Machine, merupakan salah satu arsitektur virtualisasi bersumber terbuka (Open source) yang ditanamkan kedalam linux kernel....</p>
-                <a href="https://andyzs.net/virtualisasi-dengan-kvm-di-debian-sid-gnulinux.html">Read More</a>
                 <hr class="uk-article-divider">
         </article>
 
@@ -255,8 +176,8 @@ https://www.google.com/search?q=github+custom+404&amp;ie=utf-8&amp;oe=utf-8</p>
                 <ul class="uk-nav uk-nav-side">
                     <li class="uk-nav-header">Categories</li>
                     <li ><a href="https://andyzs.net/category/freebsd.html">FreeBSD</a></li>
+                    <li ><a href="https://andyzs.net/category/gnulinux.html">GNU/Linux</a></li>
                     <li ><a href="https://andyzs.net/category/misc.html">Misc</a></li>
-                    <li ><a href="https://andyzs.net/category/virtualisasi.html">Virtualisasi</a></li>
                     <li class="uk-nav-header">Pages</li>
 
                     <li >
@@ -340,8 +261,8 @@ https://www.google.com/search?q=github+custom+404&amp;ie=utf-8&amp;oe=utf-8</p>
         <ul class="uk-nav uk-nav-offcanvas" data-uk-nav>
             <li class="uk-nav-header">Categories</li>
             <li ><a href="https://andyzs.net/category/freebsd.html">FreeBSD</a></li>
+            <li ><a href="https://andyzs.net/category/gnulinux.html">GNU/Linux</a></li>
             <li ><a href="https://andyzs.net/category/misc.html">Misc</a></li>
-            <li ><a href="https://andyzs.net/category/virtualisasi.html">Virtualisasi</a></li>
             <li class="uk-nav-header">Pages</li>
             <li >
                 <a href="https://andyzs.net/pages/tentang/">Tentang</a>
