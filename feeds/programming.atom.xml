@@ -23,4 +23,4 @@ Jika kita hanya ingin mengetahui modul yang terinstall saja maka ubahlah menjadi
 &lt;code&gt;http://172.16.10.51/phpinfo.php&lt;/code&gt;&lt;/p&gt;
 &lt;p&gt;maka kita akan ditampilkan dengan
 informasi dari php dan extensi dan module yang terinstall seperti ini:&lt;/p&gt;
-&lt;p&gt;&lt;a target="_blank" href="../images/hiawatha2.png"&gt;&lt;img src="../images/hiawatha2.png" alt="virtmanager" style=";width:350px;height:358px;"&gt;&lt;/a&gt; &lt;/br&gt; &lt;/p&gt;</content><category term="programming"></category><category term="php"></category><category term="www"></category><category term="nginx"></category><category term="apache"></category><category term="basic"></category></entry></feed>
+&lt;p&gt;&lt;img src="../images/hiawatha2.png" alt="phpinfo" style=";width:350px;height:358px;"&gt;&amp;lt; &lt;/p&gt;</content><category term="programming"></category><category term="php"></category><category term="www"></category><category term="nginx"></category><category term="apache"></category><category term="basic"></category></entry></feed>
