@@ -6,7 +6,7 @@
 <head>
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
-<title>an unfinished blogs</title>
+<title>unfinished blogs</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="description" content="A blog about learn programming, *nix, and etc.">
 <link rel="shortcut icon" href="https://andyzs.net/favicon.ico" type="">
@@ -14,12 +14,12 @@
 <meta name="copyright" content="andy">
 <meta name="twitter:card" content="summary" />
 <meta name="twitter:site" content="@andyzzzs" />
-<meta property="og:site_name" content="an unfinished blogs" />
-<meta property="og:title" content="an unfinished blogs" />
+<meta property="og:site_name" content="unfinished blogs" />
+<meta property="og:title" content="unfinished blogs" />
 <meta property="og:type" content="website" />
 <meta property="og:url" content="https://andyzs.net" />
 <meta name="twitter:url" content="https://andyzs.net" />
-<meta itemprop="name" content="an unfinished blogs" />
+<meta itemprop="name" content="unfinished blogs" />
 <meta itemprop="url" content="https://andyzs.net"/>
 <meta property="og:description" content="A blog about learn programming, *nix, and etc." />
 <meta name="twitter:description" content="A blog about learn programming, *nix, and etc." />
@@ -28,9 +28,9 @@
 <meta property="og:image:type" content="image/jpeg" />
 <meta name="twitter:image" content="https://andyzs.net/static/img/ava.jpeg" />
 <meta itemprop="image" content="https://andyzs.net/static/img/ava.jpeg" />
-<link href="https://andyzs.net/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="an unfinished blogs ATOM Feed"/>
-<link href='//fonts.googleapis.com/css?family=Open+Sans:800italic' rel='stylesheet' type='text/css'>
-<link href='//fonts.googleapis.com/css?family=Oswald' rel='stylesheet' type='text/css'>
+<link href="https://andyzs.net/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="unfinished blogs ATOM Feed"/>
+<!-- <link href='//fonts.googleapis.com/css?family=Open+Sans:800italic' rel='stylesheet' type='text/css'> -->
+<!-- <link href='//fonts.googleapis.com/css?family=Oswald' rel='stylesheet' type='text/css'> -->
 <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/uikit/2.23.0/css/uikit.min.css">
 <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/uikit/2.23.0/css/components/search.min.css">
 <link rel="stylesheet" href="https://andyzs.net/theme/css/tipuesearch.css">
@@ -48,10 +48,10 @@
 
     <div class="uk-container uk-container-center">
 
-        <a class="mg-brand uk-navbar-brand uk-hidden-small" href="https://andyzs.net">an unfinished blogs</a>
+        <a class="mg-brand uk-navbar-brand uk-hidden-small" href="https://andyzs.net/index.html">unfinished blogs</a>
         <div class="mg-tagline uk-navbar-content uk-hidden-small"></div>
         <a class="uk-navbar-toggle uk-visible-small" href="#mg-offcanvas" data-uk-offcanvas></a>
-        <a class="mg-brand uk-navbar-brand uk-navbar-center uk-visible-small" href="https://andyzs.net">an unfinished blogs</a>
+        <a class="mg-brand uk-navbar-brand uk-navbar-center uk-visible-small" href="https://andyzs.net">unfinished blogs</a>
 
     </div>
 </header>
@@ -66,45 +66,49 @@
 
 
             <article class="uk-article" itemtype="http://schema.org/BlogPosting" itemscope="itemscope" itemprop="blogPost">
+                <a href="https://andyzs.net/membuat-halaman-php-info.html" class="uk-article-title uk-link-muted" itemprop="name">Membuat halaman phpinfo</a>
+                <p class="uk-article-meta"><time datetime="2017-04-11" itemprop="datePublished">Tue 11 April 2017</time> • <a href="https://andyzs.net/category/programming.html">Programming</a> • <br class="uk-visible-small"><i class="uk-icon-comment"></i> <a href="https://andyzs.net/membuat-halaman-php-info.html#disqus_thread" itemprop="discussionUrl"></a></p>
+</p>
+                <p class="uk-article-lead" itemprop="description">Membuat halaman phpinfo</p>
+                <section itemprop="articleBody"><p>Halaman <code>phpinfo</code> adalah halaman yang menampilkan seluruh informasi dari php modul dan <code>extension</code>, beserta dengan informasi dari webserver yang digunakan.
+Untuk membuat halaman <code>phpinfo</code> ini maka buatlah file php berikut:</p>
+<div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="n">php</span>
+
+<span class="n">phpinfo</span><span class="p">();</span>
+
+<span class="o">?&gt;</span>
+</pre></div>
+
+
+<p>file ini akan menampilkan seluruh info dari php kita beserta modul/extensi dan informasi lainnya. 
+Jika kita hanya ingin mengetahui modul yang terinstall saja maka ubahlah menjadi seperti ini:</p>
+<div class="highlight"><pre><span></span><span class="o">&lt;?</span>
+
+<span class="n">phpinfo</span><span class="p">(</span><span class="n">INFO_MODULES</span><span class="p">);</span>
+</pre></div>
+
+
+<p>lalu simpan dengan nama apa saja, dan letakan di direktori yang dapat diakses oleh web server dan jangan lupa setting <em>permission</em> file.</p>
+<p>Sekarang akseslah dari browser dengan memasukan <code>http://localhost-atau-alamat-ip/direktori/file-phpinfo</code> .</p>
+<p>Disini saya menyimpan file tersebut menggunakan nama <code>phpinfo.php</code>, di direktori root html bawaan nginx di <code>freebsd</code>, maka saya membuka di <code>address bar</code> browser
+<code>http://172.16.10.51/phpinfo.php</code></p>
+<p>maka kita akan ditampilkan dengan
+informasi dari php dan extensi dan module yang terinstall seperti ini:</p>
+<p><img src="hiawatha2.png" alt="phpinfo" style="width:304px;height:228px;"></p></section>
+                <a href="https://andyzs.net/membuat-halaman-php-info.html#disqus_thread"></a>
+                <hr class="uk-article-divider">
+            </article>
+
+
+        <article class="uk-article" itemtype="http://schema.org/BlogPosting" itemscope="itemscope" itemprop="blogPost">
                 <a href="https://andyzs.net/install-kvm-virt-manager-debian-linux.html" class="uk-article-title uk-link-muted" itemprop="name">Virtualisasi dengan KVM dan VirtManager di Debian SID GNU/Linux</a>
                 <p class="uk-article-meta"><time datetime="2017-03-31" itemprop="datePublished">Fri 31 March 2017</time> • <a href="https://andyzs.net/category/gnulinux.html">GNU/Linux</a> • <br class="uk-visible-small"><i class="uk-icon-comment"></i> <a href="https://andyzs.net/install-kvm-virt-manager-debian-linux.html#disqus_thread" itemprop="discussionUrl"></a></p>
 </p>
                 <p class="uk-article-lead" itemprop="description">Instalasi qemu/kvm di debian linux, virtualisasi dengan linux kvm</p>
-                <section itemprop="articleBody"><p>KVM adalah singkatan dari <em>Kernel-based Virtual Machine</em>, merupakan salah satu arsitektur virtualisasi bersumber terbuka (<em>Open source</em>) yang ditanamkan kedalam linux kernel. KVM merupakan virtualisasi penuh yang memanfaatkan extensi virtualisasi pada prosesor X86. Untuk menjalankan module KVM pada distribusi linux kita cukup mengenable extensi virtualisasi dari <code>BIOS</code> dan meload kernel modulenya <code>kvm.ko</code> atau jika kita hanya ingin module spesifik dengan vendor hardware yang kita gunakan yang di <em>load</em> maka untuk intel <code>kvm-intel.ko</code> dan untuk AMD <code>kvm-amd.ko</code>.</p>
-<p>Alasan saya sendiri lebih memilih qemu/kvm dibanding <code>virtualbox</code> atau <code>vmware</code> adalah selain open source, di virtualbox dan vmware belakangan saya semakin sering menemukan masalah ketika habis melakukan upgrade system. </p>
-<h4>Instalasi</h4>
-<p>Untuk menginstall KVM dan paket yang didukungnya di Debian SID maka kita lakukan dengan cara berikut:</p>
-<div class="highlight"><pre><span></span>$ sudo aptitude install qemu-kvm libvirt-daemon-system libvirt-clients libvirt-dev 
-</pre></div>
-
-
-<p>Secara <em>default</em> KVM hanya mengijinkan <code>root</code> atau <code>superuser</code> yang dapat menjalankan dan mengadministrasi <em>virtual machine</em>, untuk dapat menjalankan dan mengatur virtual machine pada kvm dengan user biasa maka tambahakan user yang kita gunakan <em>groups</em> <code>libvirt</code> dan <code>kvm</code>.</p>
-<div class="highlight"><pre><span></span><span class="err">$</span> <span class="n">sudo</span> <span class="n">usesmod</span> <span class="o">-</span><span class="n">aG</span> <span class="n">kvm</span> <span class="n">user</span>
-<span class="err">$</span> <span class="n">sudo</span> <span class="n">usermod</span> <span class="o">-</span><span class="n">aG</span> <span class="n">libvirt</span> <span class="n">user</span>
-</pre></div>
-
-
-<p>Untuk manajemen dan administrasi kvm memiliki beberapa opsi, untuk cli di terminal dengan menggunakan <code>virsh</code> atau <code>virtinst / virt install</code>, sedangkan untuk <em>graphical tools</em> kita bisa menggunakan <code>virt manager</code>.</p>
-<p>Untuk menginstall virt manager ataupun gnome boxes di Debian SID kita cukup menginstallnya sama seperti package lainnya dengan dengan menggunakan <code>apt</code>.</p>
-<div class="highlight"><pre><span></span><span class="err">$</span> <span class="n">sudo</span> <span class="n">apt</span> <span class="n">install</span> <span class="n">virt</span><span class="o">-</span><span class="n">manager</span>
-</pre></div>
-
-
-<p>Selain untuk manajemen <code>KVM</code> virt-manager juga dapat digunakan untuk manajemen kontainer seperti <code>LXC</code> atau <em>hypervisor</em> lain seperti <code>XEN</code> 
-Untuk membuat <em>VM</em> baru di <code>virt-manager</code> mudah, semua logo cukup jelas sebagai petunjuk.
-<a target="_blank" href="../images/virtmanager2.png"><img src="../images/virtmanager2.png" alt="virtmanager" style=";width:350px;height:358px;"></a> </br> 
-Gambar diatas menunjukan pembuatan <em>VM</em> baru, dengan beberapa opsi seperti lokasi install media atau impor dari yang sudah ada, arsitektur untuk memilih arsitektur CPU. </p>
-<p>Lanjut ke langkah selanjutnya akan ada opsi pilihan sumber instalasi dan lokasi tempat <em>virtual disk</em>, default opsi akan mengarah ke <code>/var/lib/libvirt/images</code> yang dapat diubah dengan menambahkan pool baru. </p>
-<p>Untuk opsi <em>virtul disk format</em> yang didukung sendiri virt-manager support qcow2(default), vmware disk <code>vmdk</code>, virtualbox <code>vdi</code>, raw image, <code>vpc</code>, qcow, cow, cloop, vhdx, dll.</p>
-<p>Untuk networking secara default hanya ada opsi <code>NAT</code> dan <code>macvtap</code>. Jika ingin menggunakan <code>bridge</code> pada virt-manager maka kita bisa menginstall <code>bridge-utils</code>.</p>
-<p>Untuk opsi BIOS virt-manager mendukung <code>legacy bios</code> dan <code>UEFI</code>.
-<code>Virt-Manager</code> juga mtelah mendukung <em>live snapshoot</em>.</p>
-<p><a target="_blank" href="../images/virtmanager3.png"><img src="../images/virtmanager3.png" alt="virtmanager menjalankan guest win server" style=";width:350px;height:358px;"></a> </br> </p>
-<p>Selain opsi diatas <code>virt-manager</code> juga masih memiliki banyak opsi lain untuk optimalisasi untuk pengalaman virtualisasi yang lebih nyaman.</p>
-<p>Sekian </p></section>
-                <a href="https://andyzs.net/install-kvm-virt-manager-debian-linux.html#disqus_thread"></a>
+                <p>KVM adalah singkatan dari Kernel-based Virtual Machine, merupakan salah satu arsitektur virtualisasi bersumber terbuka (Open source) yang ditanamkan kedalam linux kernel. KVM merupakan virtualisasi penuh yang memanfaatkan extensi virtualisasi pada prosesor X86. Untuk menjalankan module KVM pada distribusi linux kita cukup mengenable extensi virtualisasi dari BIOS dan meload kernel modulenya kvm.ko atau jika kita hanya ingin module spesifik dengan vendor hardware yang kita gunakan yang di load maka untuk intel kvm-intel.ko dan untuk AMD kvm-amd.ko. Alasan...</p>
+                <a href="https://andyzs.net/install-kvm-virt-manager-debian-linux.html">Read More</a>
                 <hr class="uk-article-divider">
-            </article>
+        </article>
 
 
         <article class="uk-article" itemtype="http://schema.org/BlogPosting" itemscope="itemscope" itemprop="blogPost">
@@ -168,7 +172,7 @@ Gambar diatas menunjukan pembuatan <em>VM</em> baru, dengan beberapa opsi sepert
 
             <div class="uk-panel uk-panel-box">
                 <form class="uk-search" action="search.html" data-uk-search>
-                    <input class="uk-search-field tipue_search" type="search" name="q" id="tipue_search_input" autocomplete="off" placeholder="Search...">
+                    <input class="uk-search-field tipue_search" type="search" name="q" id="tipue_search_input" autocomplete="on" placeholder="Cari disini...">
                 </form>
             </div>
 
@@ -178,6 +182,7 @@ Gambar diatas menunjukan pembuatan <em>VM</em> baru, dengan beberapa opsi sepert
                     <li ><a href="https://andyzs.net/category/freebsd.html">FreeBSD</a></li>
                     <li ><a href="https://andyzs.net/category/gnulinux.html">GNU/Linux</a></li>
                     <li ><a href="https://andyzs.net/category/misc.html">Misc</a></li>
+                    <li ><a href="https://andyzs.net/category/programming.html">Programming</a></li>
                     <li class="uk-nav-header">Pages</li>
 
                     <li >
@@ -187,6 +192,7 @@ Gambar diatas menunjukan pembuatan <em>VM</em> baru, dengan beberapa opsi sepert
 
                     <li class="uk-nav-divider"></li>
                     <li ><a href="https://andyzs.net/archives.html">Archives</a></li>
+                    <li ><a href="https://blogs.andyzs.net">Blogs</a></li>
                 </ul>
             </div>
 
@@ -211,6 +217,9 @@ Gambar diatas menunjukan pembuatan <em>VM</em> baru, dengan beberapa opsi sepert
                 </a>
                 <a class="mg-icon-link" href="https://facebook.com">
                     <i class="uk-icon-facebook-square uk-icon-medium"></i>
+                </a>
+                <a class="mg-icon-link" href="https://t.me/autobanned">
+                    <i class="uk-icon-paper-plane uk-icon-medium"></i>
                 </a>
             </div>
 
@@ -242,6 +251,9 @@ Gambar diatas menunjukan pembuatan <em>VM</em> baru, dengan beberapa opsi sepert
             <li>
                 <a href="https://facebook.com" class="uk-icon-button uk-icon-facebook"></a>
             </li>
+            <li>
+                <a href="https://t.me/autobanned" class="uk-icon-button uk-icon-paper-plane"></a>
+            </li>
         </div>
 
         <div class="mg-author uk-panel">
@@ -263,6 +275,7 @@ Gambar diatas menunjukan pembuatan <em>VM</em> baru, dengan beberapa opsi sepert
             <li ><a href="https://andyzs.net/category/freebsd.html">FreeBSD</a></li>
             <li ><a href="https://andyzs.net/category/gnulinux.html">GNU/Linux</a></li>
             <li ><a href="https://andyzs.net/category/misc.html">Misc</a></li>
+            <li ><a href="https://andyzs.net/category/programming.html">Programming</a></li>
             <li class="uk-nav-header">Pages</li>
             <li >
                 <a href="https://andyzs.net/pages/tentang/">Tentang</a>
@@ -271,6 +284,8 @@ Gambar diatas menunjukan pembuatan <em>VM</em> baru, dengan beberapa opsi sepert
 
             <li class="uk-nav-divider"></li>
             <li><a href="https://andyzs.net/">Archives</a></li>
+            <li class="uk-nav-divider"></li>
+            <li><a href="https://blog.andyzs.net">blogs</a></li>
         </ul>
     </div>
 </div>

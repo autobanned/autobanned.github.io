@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom"><title>unfinished blogs - Programming</title><link href="https://andyzs.net/" rel="alternate"></link><link href="SITEURL/feeds/programming.atom.xml" rel="self"></link><id>https://andyzs.net/</id><updated>2017-04-11T10:30:00+07:00</updated><entry><title>Membuat halaman phpinfo</title><link href="https://andyzs.net/membuat-halaman-php-info.html" rel="alternate"></link><published>2017-04-11T10:30:00+07:00</published><updated>2017-04-09T23:40:00+07:00</updated><author><name>andy.zs</name></author><id>tag:andyzs.net,2017-04-11:/membuat-halaman-php-info.html</id><summary type="html">&lt;p&gt;Membuat halaman phpinfo&lt;/p&gt;</summary><content type="html">&lt;p&gt;Halaman &lt;code&gt;phpinfo&lt;/code&gt; adalah halaman yang menampilkan seluruh informasi dari php modul dan &lt;code&gt;extension&lt;/code&gt;, beserta dengan informasi dari webserver yang digunakan.
+Untuk membuat halaman &lt;code&gt;phpinfo&lt;/code&gt; ini maka buatlah file php berikut:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="o"&gt;&amp;lt;?&lt;/span&gt;&lt;span class="n"&gt;php&lt;/span&gt;
+
+&lt;span class="n"&gt;phpinfo&lt;/span&gt;&lt;span class="p"&gt;();&lt;/span&gt;
+
+&lt;span class="o"&gt;?&amp;gt;&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;file ini akan menampilkan seluruh info dari php kita beserta modul/extensi dan informasi lainnya. 
+Jika kita hanya ingin mengetahui modul yang terinstall saja maka ubahlah menjadi seperti ini:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="o"&gt;&amp;lt;?&lt;/span&gt;
+
+&lt;span class="n"&gt;phpinfo&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;INFO_MODULES&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;lalu simpan dengan nama apa saja, dan letakan di direktori yang dapat diakses oleh web server dan jangan lupa setting &lt;em&gt;permission&lt;/em&gt; file.&lt;/p&gt;
+&lt;p&gt;Sekarang akseslah dari browser dengan memasukan &lt;code&gt;http://localhost-atau-alamat-ip/direktori/file-phpinfo&lt;/code&gt; .&lt;/p&gt;
+&lt;p&gt;Disini saya menyimpan file tersebut menggunakan nama &lt;code&gt;phpinfo.php&lt;/code&gt;, di direktori root html bawaan nginx di &lt;code&gt;freebsd&lt;/code&gt;, maka saya membuka di &lt;code&gt;address bar&lt;/code&gt; browser
+&lt;code&gt;http://172.16.10.51/phpinfo.php&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;maka kita akan ditampilkan dengan
+informasi dari php dan extensi dan module yang terinstall seperti ini:&lt;/p&gt;
+&lt;p&gt;&lt;img src="hiawatha2.png" alt="phpinfo" style="width:304px;height:228px;"&gt;&lt;/p&gt;</content><category term="programming"></category><category term="php"></category><category term="www"></category><category term="nginx"></category><category term="apache"></category><category term="basic"></category></entry></feed>

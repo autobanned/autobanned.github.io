@@ -1,8 +1,8 @@
-<meta property="og:title" content="an unfinished blogs" />
+<meta property="og:title" content="unfinished blogs" />
 <meta property="og:type" content="website" />
 <meta property="og:url" content="https://andyzs.net" />
 <meta name="twitter:url" content="https://andyzs.net" />
-<meta itemprop="name" content="an unfinished blogs">
+<meta itemprop="name" content="unfinished blogs">
 <meta itemprop="url" content="https://andyzs.net">
 <meta property="og:image" content="https://andyzs.net/static/img/ava.jpeg" />
 <meta property="og:image:type" content="image/jpeg" />
@@ -25,12 +25,12 @@
 <meta name="copyright" content="andy">
 <meta name="twitter:card" content="summary" />
 <meta name="twitter:site" content="@andyzzzs" />
-<meta property="og:site_name" content="an unfinished blogs" />
-<meta property="og:title" content="an unfinished blogs" />
+<meta property="og:site_name" content="unfinished blogs" />
+<meta property="og:title" content="unfinished blogs" />
 <meta property="og:type" content="website" />
 <meta property="og:url" content="https://andyzs.net" />
 <meta name="twitter:url" content="https://andyzs.net" />
-<meta itemprop="name" content="an unfinished blogs" />
+<meta itemprop="name" content="unfinished blogs" />
 <meta itemprop="url" content="https://andyzs.net"/>
 <meta property="og:description" content="A blog about learn programming, *nix, and etc." />
 <meta name="twitter:description" content="A blog about learn programming, *nix, and etc." />
@@ -39,9 +39,9 @@
 <meta property="og:image:type" content="image/jpeg" />
 <meta name="twitter:image" content="https://andyzs.net/static/img/ava.jpeg" />
 <meta itemprop="image" content="https://andyzs.net/static/img/ava.jpeg" />
-<link href="https://andyzs.net/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="an unfinished blogs ATOM Feed"/>
-<link href='//fonts.googleapis.com/css?family=Open+Sans:800italic' rel='stylesheet' type='text/css'>
-<link href='//fonts.googleapis.com/css?family=Oswald' rel='stylesheet' type='text/css'>
+<link href="https://andyzs.net/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="unfinished blogs ATOM Feed"/>
+<!-- <link href='//fonts.googleapis.com/css?family=Open+Sans:800italic' rel='stylesheet' type='text/css'> -->
+<!-- <link href='//fonts.googleapis.com/css?family=Oswald' rel='stylesheet' type='text/css'> -->
 <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/uikit/2.23.0/css/uikit.min.css">
 <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/uikit/2.23.0/css/components/search.min.css">
 <link rel="stylesheet" href="https://andyzs.net/theme/css/tipuesearch.css">
@@ -59,10 +59,10 @@
 
     <div class="uk-container uk-container-center">
 
-        <a class="mg-brand uk-navbar-brand uk-hidden-small" href="https://andyzs.net">an unfinished blogs</a>
+        <a class="mg-brand uk-navbar-brand uk-hidden-small" href="https://andyzs.net/index.html">unfinished blogs</a>
         <div class="mg-tagline uk-navbar-content uk-hidden-small"></div>
         <a class="uk-navbar-toggle uk-visible-small" href="#mg-offcanvas" data-uk-offcanvas></a>
-        <a class="mg-brand uk-navbar-brand uk-navbar-center uk-visible-small" href="https://andyzs.net">an unfinished blogs</a>
+        <a class="mg-brand uk-navbar-brand uk-navbar-center uk-visible-small" href="https://andyzs.net">unfinished blogs</a>
 
     </div>
 </header>
@@ -76,6 +76,14 @@
 <div class="uk-width-medium-4-5">
     <h1 class="uk-heading-large">Archives</h1>
 
+    <article class="uk-article">
+        <a href="membuat-halaman-php-info.html" class="uk-article-title uk-link-muted mg-list-title">Membuat halaman phpinfo</a>
+        <p class="uk-article-meta">
+            <time datetime="2017-04-11">Tue 11 April 2017</time>
+        </p>
+        <p>Halaman phpinfo adalah halaman yang menampilkan seluruh informasi dari php modul dan extension, beserta dengan informasi dari webserver yang digunakan. Untuk membuat halaman phpinfo ini maka buatlah file php berikut: <?php phpinfo(); ?> file ini akan menampilkan seluruh info dari php kita beserta modul/extensi dan informasi lainnya. Jika kita hanya ingin mengetahui modul yang terinstall saja maka ubahlah menjadi seperti ini: <? phpinfo(INFO_MODULES); lalu simpan dengan nama apa saja, dan letakan...</p>
+
+    </article>
     <article class="uk-article">
         <a href="install-kvm-virt-manager-debian-linux.html" class="uk-article-title uk-link-muted mg-list-title">Virtualisasi dengan KVM dan VirtManager di Debian SID GNU/Linux</a>
         <p class="uk-article-meta">
@@ -131,7 +139,7 @@
 
             <div class="uk-panel uk-panel-box">
                 <form class="uk-search" action="search.html" data-uk-search>
-                    <input class="uk-search-field tipue_search" type="search" name="q" id="tipue_search_input" autocomplete="off" placeholder="Search...">
+                    <input class="uk-search-field tipue_search" type="search" name="q" id="tipue_search_input" autocomplete="on" placeholder="Cari disini...">
                 </form>
             </div>
 
@@ -141,6 +149,7 @@
                     <li ><a href="https://andyzs.net/category/freebsd.html">FreeBSD</a></li>
                     <li ><a href="https://andyzs.net/category/gnulinux.html">GNU/Linux</a></li>
                     <li ><a href="https://andyzs.net/category/misc.html">Misc</a></li>
+                    <li ><a href="https://andyzs.net/category/programming.html">Programming</a></li>
                     <li class="uk-nav-header">Pages</li>
 
                     <li >
@@ -150,6 +159,7 @@
 
                     <li class="uk-nav-divider"></li>
                     <li class="uk-active"><a href="https://andyzs.net/archives.html">Archives</a></li>
+                    <li ><a href="https://blogs.andyzs.net">Blogs</a></li>
                 </ul>
             </div>
 
@@ -174,6 +184,9 @@
                 </a>
                 <a class="mg-icon-link" href="https://facebook.com">
                     <i class="uk-icon-facebook-square uk-icon-medium"></i>
+                </a>
+                <a class="mg-icon-link" href="https://t.me/autobanned">
+                    <i class="uk-icon-paper-plane uk-icon-medium"></i>
                 </a>
             </div>
 
@@ -205,6 +218,9 @@
             <li>
                 <a href="https://facebook.com" class="uk-icon-button uk-icon-facebook"></a>
             </li>
+            <li>
+                <a href="https://t.me/autobanned" class="uk-icon-button uk-icon-paper-plane"></a>
+            </li>
         </div>
 
         <div class="mg-author uk-panel">
@@ -226,6 +242,7 @@
             <li ><a href="https://andyzs.net/category/freebsd.html">FreeBSD</a></li>
             <li ><a href="https://andyzs.net/category/gnulinux.html">GNU/Linux</a></li>
             <li ><a href="https://andyzs.net/category/misc.html">Misc</a></li>
+            <li ><a href="https://andyzs.net/category/programming.html">Programming</a></li>
             <li class="uk-nav-header">Pages</li>
             <li >
                 <a href="https://andyzs.net/pages/tentang/">Tentang</a>
@@ -234,6 +251,8 @@
 
             <li class="uk-nav-divider"></li>
             <li><a href="https://andyzs.net/">Archives</a></li>
+            <li class="uk-nav-divider"></li>
+            <li><a href="https://blog.andyzs.net">blogs</a></li>
         </ul>
     </div>
 </div>
